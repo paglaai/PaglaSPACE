@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PaglaMLX — PaglaAI</title>
+  <meta name="description" content="PaglaMLX unifies local MLX models and cloud providers behind one local API, managed from your menu bar.">
+  <link rel="icon" href="../assets/brand/pagla-face-black.png" type="image/png">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/utilities.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="../index.html" aria-label="PaglaAI home">PaglaAI</a>
+      <nav class="site-nav" data-site-nav aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="../products/paglamlx.html" aria-current="page">Products</a></li>
+          <li><a class="site-nav__link" href="../docs/index.html">Docs</a></li>
+          <li><a class="site-nav__link" href="../brand/index.html">BrandKit</a></li>
+          <li><a class="site-nav__link" href="../blog/index.html">Blog</a></li>
+          <li><a class="site-nav__link" href="../about/index.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="utility">
+        <button type="button" class="icon-btn" data-search-open aria-label="Search the site">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="7" cy="7" r="4"></circle>
+            <path d="M10.2 10.2 14 14"></path>
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="8" cy="8" r="3"></circle>
+            <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.6 2.6l1.4 1.4M12 12l1.4 1.4M13.4 2.6L12 4M4 12l-1.4 1.4"></path>
+          </svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M13 9.5A5.5 5.5 0 1 1 6.5 3 5.5 5.5 0 0 0 13 9.5Z"></path>
+          </svg>
+          <span data-theme-label>Dark</span>
+        </button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M2 4h12M2 8h12M2 12h12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumbs__list">
+          <li><a class="breadcrumbs__link" href="../index.html">Home</a></li>
+          <li><span class="breadcrumbs__sep" aria-hidden="true">/</span></li>
+          <li><a class="breadcrumbs__link" href="../products/paglamlx.html">Products</a></li>
+          <li><span class="breadcrumbs__sep" aria-hidden="true">/</span></li>
+          <li><span class="breadcrumbs__current" aria-current="page">PaglaMLX</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="hero hero--split">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <p class="overline">PRODUCT</p>
+            <h1 class="hero__headline">PaglaMLX</h1>
+            <p class="hero__summary">
+              LLM orchestration, optimized for your Mac. One local API for MLX
+              models and cloud providers, managed securely from the menu bar.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="../docs/index.html">Read the docs</a>
+              <a class="btn btn--ghost" href="https://github.com/paglaai/PaglaMLX">View on GitHub</a>
+            </div>
+          </div>
+          <div class="terminal" role="img" aria-label="PaglaMLX install and run output">
+            <div class="terminal__chrome">
+              <span class="terminal__dot"></span>
+              <span class="terminal__dot"></span>
+              <span class="terminal__dot"></span>
+              <span class="terminal__title">quickstart</span>
+            </div>
+            <div class="terminal__body">
+              <span class="terminal__line"><span class="prompt">$</span> git clone https://github.com/paglaai/PaglaMLX.git</span>
+              <span class="terminal__line"><span class="prompt">$</span> cd PaglaMLX &amp;&amp; ./build_dmg.sh</span>
+              <span class="terminal__line"><span class="muted"># requires macOS 14+, Python 3.12+, Apple Silicon</span></span>
+              <span class="terminal__line"><span class="prompt">$</span> curl http://127.0.0.1:2525/v1/chat/completions \</span>
+              <span class="terminal__line"><span class="prompt">&gt;</span>   -H "Authorization: Bearer $(defaults read com.paglaai.app apiKey)" \</span>
+              <span class="terminal__line"><span class="prompt">&gt;</span>   -d '{"model":"auto","messages":[{"role":"user","content":"Hello"}]}'</span>
+              <span class="terminal__line"><span class="muted">{"choices":[{"message":{"role":"assistant","content":"Hi!"}}]}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="overview-heading">
+      <div class="container">
+        <h2 id="overview-heading" class="section__heading">Overview</h2>
+        <p>
+          PaglaMLX is an orchestration layer that speaks both OpenAI and
+          Anthropic natively, dropping straight into any existing AI workflow.
+          Local MLX models run as isolated servers on their own ports; the
+          gateway routes by name, falls back to cloud providers by prefix, and
+          translates protocols in both directions — streaming and tool calls
+          included.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="problem-heading">
+      <div class="container">
+        <h2 id="problem-heading" class="section__heading">Why it exists</h2>
+        <p>
+          Testing a local model used to mean spinning up isolated servers and
+          managing ports by hand. Switching between local and cloud meant
+          rewiring clients. PaglaMLX removes that ceremony.
+        </p>
+        <ul>
+          <li>Manually starting and tracking a server per model.</li>
+          <li>Reconfiguring every client to reach a different port or protocol.</li>
+          <li>No clean fallback when a local model is unavailable.</li>
+          <li>No single place to see what is loaded and what is running.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="solution-heading">
+      <div class="container">
+        <h2 id="solution-heading" class="section__heading">Solution</h2>
+        <p>
+          One gateway on <code>127.0.0.1:2525/v1</code>. Every model is a
+          directory; every provider is a prefix. Clients point at one address
+          and let the router decide.
+        </p>
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 class="card__name">One API, two protocols</h3>
+            <p class="card__line">OpenAI <code>/v1/*</code> and Anthropic <code>/v1/messages</code>, translated bidirectionally.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Auto-routing</h3>
+            <p class="card__line"><code>model=auto</code> picks the best local model; <code>gpt-*</code>, <code>claude-*</code>, <code>gemini-*</code> and friends route to cloud.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Menu-bar control</h3>
+            <p class="card__line">Load, unload, and watch models without touching a terminal.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">One-click integrations</h3>
+            <p class="card__line">VS Code, Copilot, Kilo Code, OpenCode, Cline, Continue.dev, Claude Code, Codex CLI and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading" class="section__heading section__heading--center">Key features</h2>
+        <div class="grid grid--3">
+          <div class="card">
+            <h3 class="card__name">Smart gateway</h3>
+            <p class="card__line">OpenAI-native and Anthropic-native endpoints on one local port.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Model orchestration</h3>
+            <p class="card__line">One-click load and unload; each model runs as an isolated <code>mlx_lm.server</code>.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Live route table</h3>
+            <p class="card__line">Routes update as models start and stop; multiple models run concurrently.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Cloud fallback</h3>
+            <p class="card__line">Prefix routing to OpenAI, Anthropic, Gemini, OpenRouter, Groq, and Together.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Free Router</h3>
+            <p class="card__line">A free fallback path through OpenRouter when nothing else is configured.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Secure by default</h3>
+            <p class="card__line">Local-only binding and a key from Settings, readable by your tools only.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="architecture-heading">
+      <div class="container">
+        <h2 id="architecture-heading" class="section__heading">Architecture</h2>
+        <ul class="layer-list">
+          <li class="layer-list__item">
+            <span class="layer-list__name">SwiftUI App (menu bar)</span>
+            <p class="layer-list__line">Loads models, exposes settings, watches the event log.</p>
+          </li>
+          <li class="layer-list__item">
+            <span class="layer-list__name">RoutingGateway (Python, :2525 /v1/*)</span>
+            <p class="layer-list__line">Translates OpenAI ↔ Anthropic, routes by name and prefix, streams.</p>
+          </li>
+          <li class="layer-list__item">
+            <span class="layer-list__name">Local Router</span>
+            <p class="layer-list__line">One <code>mlx_lm</code> process per model, each on its own port (50xx).</p>
+          </li>
+          <li class="layer-list__item">
+            <span class="layer-list__name">Cloud Router</span>
+            <p class="layer-list__line">OpenAI, Anthropic, Gemini, Groq, Together by prefix.</p>
+          </li>
+          <li class="layer-list__item">
+            <span class="layer-list__name">Free Router</span>
+            <p class="layer-list__line">OpenRouter fallback when no cloud key is present.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="docs-heading">
+      <div class="container">
+        <h2 id="docs-heading" class="section__heading">Documentation</h2>
+        <div class="grid grid--2">
+          <div class="code-block">
+            <div class="code-block__header">
+              <span class="code-block__file">bash</span>
+              <button type="button" class="code-block__copy" data-copy="#mlx-install">Copy</button>
+            </div>
+            <pre id="mlx-install"><code>$ git clone https://github.com/paglaai/PaglaMLX.git
+$ cd PaglaMLX
+$ ./build_dmg.sh   # release build + .app + .dmg</code></pre>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Getting started</h3>
+            <p class="card__line">Set your models directory, check Python, load a model, and connect any OpenAI or Anthropic-compatible tool.</p>
+            <p class="u-mt-4"><a class="btn btn--ghost" href="../docs/index.html">Start the guide</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="downloads-heading">
+      <div class="container">
+        <h2 id="downloads-heading" class="section__heading">Downloads</h2>
+        <div class="download-row">
+          <div>
+            <div class="download-row__name">PaglaMLX macOS app</div>
+            <div class="download-row__format">.dmg · macOS 14+ · Apple Silicon</div>
+          </div>
+          <a class="btn btn--ghost" href="https://github.com/paglaai/PaglaMLX/releases">Download</a>
+        </div>
+        <div class="download-row">
+          <div>
+            <div class="download-row__name">Source code</div>
+            <div class="download-row__format">.zip · MIT · Python + Swift</div>
+          </div>
+          <a class="btn btn--ghost" href="https://github.com/paglaai/PaglaMLX">Source</a>
+        </div>
+        <div class="download-row">
+          <div>
+            <div class="download-row__name">Release notes</div>
+            <div class="download-row__format">CHANGELOG · v1.5.0 current</div>
+          </div>
+          <a class="btn btn--ghost" href="https://github.com/paglaai/PaglaMLX/releases">Notes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <h2 id="roadmap-heading" class="section__heading">Roadmap</h2>
+        <ul class="timeline">
+          <li class="timeline__row">
+            <span class="timeline__date">Shipped</span>
+            <span class="timeline__rail"><span class="timeline__dot"></span></span>
+            <div>
+              <h3 class="timeline__milestone">v1.5.0 — Rebranding release</h3>
+              <p class="timeline__line">Project renamed to PaglaMLX, docs and API reference published, release pipeline live.</p>
+            </div>
+          </li>
+          <li class="timeline__row">
+            <span class="timeline__date">Now</span>
+            <span class="timeline__rail"><span class="timeline__dot timeline__dot--current"></span></span>
+            <div>
+              <h3 class="timeline__milestone">Gateway hardening</h3>
+              <p class="timeline__line">Event-log watcher, deterministic replay tests, and deeper provider coverage.</p>
+            </div>
+          </li>
+          <li class="timeline__row">
+            <span class="timeline__date">Next</span>
+            <span class="timeline__rail"><span class="timeline__dot"></span></span>
+            <div>
+              <h3 class="timeline__milestone">Model marketplace</h3>
+              <p class="timeline__line">Browse, download, and pin models from the menu bar.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <h2 id="faq-heading" class="section__heading">FAQ</h2>
+        <div class="tabs" data-tabs>
+          <ul class="tabs__list" role="tablist" aria-label="Frequently asked questions">
+            <li><button type="button" id="faq-tab-1" class="tabs__tab" role="tab" aria-selected="true" aria-controls="faq-panel-1">Install</button></li>
+            <li><button type="button" id="faq-tab-2" class="tabs__tab" role="tab" aria-selected="false" aria-controls="faq-panel-2">Usage</button></li>
+            <li><button type="button" id="faq-tab-3" class="tabs__tab" role="tab" aria-selected="false" aria-controls="faq-panel-3">Limits</button></li>
+          </ul>
+          <div class="tabs__panel" id="faq-panel-1" role="tabpanel" aria-labelledby="faq-tab-1">
+            <p>Download the latest <code>.dmg</code> from Releases and drag it to Applications. From source, clone, run <code>./build_dmg.sh</code>, and you're done.</p>
+          </div>
+          <div class="tabs__panel" id="faq-panel-2" role="tabpanel" aria-labelledby="faq-tab-2" hidden>
+            <p>Point any OpenAI- or Anthropic-compatible tool at <code>http://127.0.0.1:2525/v1</code> with the key from Settings → Network. Use <code>model=auto</code> to let the router decide, or name a specific model.</p>
+          </div>
+          <div class="tabs__panel" id="faq-panel-3" role="tabpanel" aria-labelledby="faq-tab-3" hidden>
+            <p>Requires macOS 14.0+, Python 3.12+, and Apple Silicon. Memory usage scales with the models you keep loaded; unloading a model frees its port and its memory.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="next-heading">
+      <div class="container">
+        <h2 id="next-heading" class="cta__heading">Run it locally tonight</h2>
+        <p class="cta__line">Open the quick start or clone the repo. Your first local model is minutes away.</p>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="../docs/index.html">Get started</a>
+          <a class="btn btn--ghost" href="https://github.com/paglaai/PaglaMLX">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="search-dialog" data-search-dialog data-root="../">
+    <label class="search-dialog__label" for="site-search">Search the site</label>
+    <input class="search-dialog__input" id="site-search" type="search" data-search-input placeholder="Type a page name" autocomplete="off">
+    <ul class="search-dialog__results" data-search-results></ul>
+    <p class="search-dialog__empty" data-search-empty hidden>No results. Try a page name, like "docs".</p>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="footer-wordmark" href="../index.html">PaglaAI</a>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-col__head">Products</h2>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../products/paglamlx.html">PaglaMLX</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/paglarouter">PaglaROUTER</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/PaglaDESIGN">PaglaDESIGN</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-col__head">Documentation</h2>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../docs/index.html">Getting started</a></li>
+            <li><a class="footer-col__link" href="../api/reference.html">API reference</a></li>
+            <li><a class="footer-col__link" href="../brand/index.html">BrandKit</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-col__head">Community</h2>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="https://github.com/paglaai">GitHub</a></li>
+            <li><a class="footer-col__link" href="../blog/index.html">Blog</a></li>
+            <li><a class="footer-col__link" href="../about/index.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 AYNAGHOR. Intelligence, Unhinged.</span>
+        <div class="footer-legal__links">
+          <a href="../about/index.html">Contact</a>
+          <a href="../404.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
