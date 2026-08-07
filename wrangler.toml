@@ -1,0 +1,13 @@
+# Cloudflare Pages deployment config for PaglaAI.space.
+# Wrangler Pages ignores use the same syntax as .gitignore.
+# The site is fully static - build output IS the repository root.
+
+name = "paglaai"
+pages_build_output_dir = "."
+
+[pages]
+ignore = [
+  ".opencode/",
+  ".git/",
+  ".gitignore",
+]

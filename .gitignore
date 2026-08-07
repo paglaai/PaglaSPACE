@@ -1,6 +1,9 @@
 # Local agent tooling (third-party skills, machine-installed)
 .opencode/
 
+# Cloudflare Pages CLI cache
+.wrangler/
+
 # OS noise
 Thumbs.db
 .DS_Store
