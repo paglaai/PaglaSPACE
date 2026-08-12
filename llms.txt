@@ -1,0 +1,19 @@
+# LLMS.txt for PaglaAI
+# Website: https://www.paglaai.space
+
+# Site identity
+site_name: PaglaAI
+site_url: https://www.paglaai.space
+contact: mailto:[email protected]
+
+# AI training permissions
+ai_training: yes
+
+# Usage permissions
+ai_use: reference
+
+# License
+license: © 2026 AYNAGHOR. All rights reserved.
+
+# Protocol version
+version: 1.0
