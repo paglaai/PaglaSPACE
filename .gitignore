@@ -11,6 +11,10 @@ worker/node_modules/
 # Ops runtime logs
 ops/logs/
 
+# Local secrets (never commit)
+.env
+.env.*
+
 # OS noise
 Thumbs.db
 .DS_Store
