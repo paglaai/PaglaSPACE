@@ -75,11 +75,19 @@ async function dispatchGitHubJob(env, jobName) {
         accept: "application/vnd.github+json",
         "x-github-api-version": "2022-11-28",
         "content-type": "application/json",
+        "user-agent": "paglaai-kamla",
       },
       body: JSON.stringify({ ref: "main", inputs: { job: jobName } }),
     }
   );
-  return { dispatched: res.ok, status: res.status, repo, job: jobName };
+  const detail = await res.text();
+  return {
+    dispatched: res.ok,
+    status: res.status,
+    repo,
+    job: jobName,
+    detail: detail.slice(0, 300),
+  };
 }
 
 function requireAuth(request, env) {
