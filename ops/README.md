@@ -129,10 +129,11 @@ Already configured in the repo (Settings → Secrets and variables → Actions):
   would only update the `main.pagla-ai-hub.pages.dev` preview).
 - **Worker**: `kamla` in the same AYNAGHOR account (account id is pinned in
   `worker/wrangler.toml`), public URL `https://kamla.aynaghor.workers.dev`.
-- **Auth**: deploys use the `CLOUDFLARE_API_TOKEN` Actions secret (OAuth token
-  scoped to AYNAGHOR with `pages (write)` + `workers_scripts (write)`). Replace
-  it with a permanent scoped API Token from
-  `dash.cloudflare.com → My Profile → API Tokens` if it ever expires.
+- **Auth**: deploys use the `CLOUDFLARE_API_TOKEN` Actions secret — the scoped
+  API Token **"OpenCode"** (id `b2f57937…`, full AYNAGHOR account access,
+  expires `2027-08-13`). Note: account-scoped tokens are only verifiable via
+  `/accounts/{id}/tokens/verify` (the `/user/tokens/verify` endpoint reports
+  them as invalid).
 
 ## CI / test pipeline
 
