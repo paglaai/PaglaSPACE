@@ -109,15 +109,30 @@ into the matching GitHub workflow.
 
 ## Required repository secrets / variables
 
-Configure these in the repo (Settings → Secrets and variables):
+Already configured in the repo (Settings → Secrets and variables → Actions):
 
 | Name | Where | Purpose |
 | ---- | ----- | ------- |
-| `CLOUDFLARE_API_TOKEN` | Actions secret | Deploy Pages + Worker. Needs `Pages:Edit`, `Workers Scripts:Edit`, `Account:Read`. |
-| `CLOUDFLARE_ACCOUNT_ID` | Actions secret | Account id (`bd99f086…` per `.wrangler/cache`). |
+| `CLOUDFLARE_API_TOKEN` | Actions secret | Deploy Pages + Worker on the AYNAGHOR account (`bd99f086…`). Scoped with `Pages:Edit`, `Workers Scripts:Edit`. |
+| `CLOUDFLARE_ACCOUNT_ID` | Actions secret | `bd99f086b0a1faea1aafc301735623da` (AYNAGHOR). |
 | `PAGLAAI_GITHUB_TOKEN` | Actions secret | Passed to the Worker so cron jobs can dispatch GitHub workflows. |
-| `WORKER_URL` | Actions variable | The Worker's public URL, used by `verify-worker`. |
+| `WORKER_URL` | Actions variable | `https://kamla.aynaghor.workers.dev`, used by `verify-worker`. |
 | `JOBS_API_TOKEN` (optional) | Pages + Worker | Bearer token guarding `POST /api/jobs/:name/run`. |
+
+## Deployment topology
+
+- **Pages project**: `paglaai` → subdomain `pagla-ai-hub.pages.dev` → custom
+  domain `www.paglaai.space`. Lives in the **AYNAGHOR** account
+  (`bd99f086b0a1faea1aafc301735623da`).
+- **Production branch**: the Pages project's production branch is `production`,
+  so `deploy.yml` explicitly deploys `--branch production` (a `main` deploy
+  would only update the `main.pagla-ai-hub.pages.dev` preview).
+- **Worker**: `kamla` in the same AYNAGHOR account (account id is pinned in
+  `worker/wrangler.toml`), public URL `https://kamla.aynaghor.workers.dev`.
+- **Auth**: deploys use the `CLOUDFLARE_API_TOKEN` Actions secret (OAuth token
+  scoped to AYNAGHOR with `pages (write)` + `workers_scripts (write)`). Replace
+  it with a permanent scoped API Token from
+  `dash.cloudflare.com → My Profile → API Tokens` if it ever expires.
 
 ## CI / test pipeline
 

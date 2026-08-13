@@ -1,5 +1,5 @@
 {
-  "name": "paglaai-jobs-worker",
+  "name": "kamla-worker",
   "private": true,
   "type": "module",
   "description": "PaglaAI jobs Worker: cron-triggered health checks, search pings, and GitHub job dispatch.",

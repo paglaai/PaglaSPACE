@@ -38,11 +38,14 @@ Requires Node.js ≥ 20.
 ## Deploying
 
 Deploys happen automatically from `main` via `deploy.yml` (Pages + Worker)
-after the test job passes. Secrets required:
+after the test job passes. The Pages project is `paglaai` (subdomain
+`pagla-ai-hub.pages.dev`) in the AYNAGHOR Cloudflare account; because its
+production branch is `production`, `deploy.yml` deploys with
+`--branch production`. Secrets are already configured:
 
 - `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (Actions)
 - `PAGLAAI_GITHUB_TOKEN` (Actions, so the Worker can dispatch jobs)
-- `WORKER_URL` (Actions variable)
+- `WORKER_URL` (Actions variable: `https://kamla.aynaghor.workers.dev`)
 
 ## Releases
 

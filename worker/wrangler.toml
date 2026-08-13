@@ -1,10 +1,11 @@
-# Cloudflare Worker — PaglaAI jobs executor.
+# Cloudflare Worker — Kamla, the PaglaAI jobs executor.
 # Handles cron-triggered jobs (health checks, search pings, GitHub dispatch)
 # and exposes an on-demand API on the Workers runtime.
 
-name = "paglaai-jobs"
+name = "kamla"
 main = "index.js"
 compatibility_date = "2025-06-01"
+account_id = "bd99f086b0a1faea1aafc301735623da"
 
 [triggers]
 crons = [
