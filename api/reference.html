@@ -92,6 +92,13 @@
             through the Free Router depending on the <code>model</code>.
           </p>
 
+          <h2 id="authentication">Authentication</h2>
+          <p>
+            Requests are authenticated with a bearer token. On the local gateway
+            any key from Settings → Network works; when routing to a cloud
+            provider, the matching provider key is used instead.
+          </p>
+
           <h2 id="request">Request</h2>
           <div class="code-block">
             <div class="code-block__header">
@@ -246,6 +253,21 @@
               </tbody>
             </table>
           </div>
+
+          <h2 id="models">Models</h2>
+          <p>
+            <code>auto</code> routes to the best local model. Provider prefixes
+            such as <code>gpt-*</code>, <code>claude-*</code>, and
+            <code>gemini-*</code> route to the cloud, with failover across the
+            configured keys for that provider.
+          </p>
+
+          <h2 id="stream">Streaming</h2>
+          <p>
+            Set <code>stream: true</code> to receive server-sent events instead
+            of a single JSON response. Chunks carry <code>choices[].delta</code>
+            and the stream ends with a <code>done</code> event.
+          </p>
 
           <h2 id="examples">Examples</h2>
           <div class="tabs" data-tabs>

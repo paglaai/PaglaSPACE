@@ -1,0 +1,35 @@
+name: Ops · On-demand
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job name, category, or 'all' (see ops/jobs.json)"
+        required: false
+        default: all
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    name: Run job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run job
+        run: node ops/run-job.mjs "${{ github.event.inputs.job || 'all' }}"
+        env:
+          SITE_URL: https://www.paglaai.space
+          WORKER_URL: ${{ vars.WORKER_URL }}

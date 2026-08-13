@@ -1,0 +1,18 @@
+# Cloudflare Worker — PaglaAI jobs executor.
+# Handles cron-triggered jobs (health checks, search pings, GitHub dispatch)
+# and exposes an on-demand API on the Workers runtime.
+
+name = "paglaai-jobs"
+main = "index.js"
+compatibility_date = "2025-06-01"
+
+[triggers]
+crons = [
+  "*/15 * * * *",
+  "0 3 * * *",
+  "0 6 * * *",
+]
+
+[vars]
+GITHUB_REPO = "paglaai/PaglaAI.space"
+SITE_URL = "https://www.paglaai.space"

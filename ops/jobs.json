@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "repo": "paglaai/PaglaAI.space",
+  "siteUrl": "https://www.paglaai.space",
+  "workflowDispatch": "ops.yml",
+  "jobs": [
+    {
+      "name": "nightly-audit",
+      "description": "Full internal-link and asset audit of the site source.",
+      "category": "nightly",
+      "schedule": "30 2 * * *",
+      "timeout": 600,
+      "command": "node ops/scripts/link-audit.mjs"
+    },
+    {
+      "name": "sitemap-generate",
+      "description": "Regenerate sitemap.xml from the page tree and commit if changed.",
+      "category": "scheduled",
+      "schedule": "0 3 * * *",
+      "timeout": 600,
+      "command": "node ops/scripts/sitemap-gen.mjs",
+      "commit": true
+    },
+    {
+      "name": "health-check",
+      "description": "Curl the live site and assert every public page returns 200.",
+      "category": "on_demand",
+      "timeout": 300,
+      "command": "bash ops/scripts/health-check.sh"
+    },
+    {
+      "name": "ping-search",
+      "description": "Ping Google and Bing with the current sitemap URL.",
+      "category": "scheduled",
+      "schedule": "0 6 * * *",
+      "timeout": 120,
+      "command": "bash ops/scripts/ping-search.sh"
+    },
+    {
+      "name": "worker-verify",
+      "description": "Verify the Cloudflare Worker's health endpoint responds. The Worker also runs its own */15 health cron natively.",
+      "category": "on_demand",
+      "timeout": 120,
+      "command": "bash ops/scripts/verify-worker.sh"
+    }
+  ]
+}

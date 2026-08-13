@@ -1,0 +1,37 @@
+name: Ops · Nightly
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  nightly:
+    name: Nightly audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run nightly category jobs
+        run: node ops/run-job.mjs nightly
+        env:
+          SITE_URL: https://www.paglaai.space
+          WORKER_URL: ${{ vars.WORKER_URL }}
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Nightly jobs failed. Review ops/logs in the Actions run or run 'node ops/run-job.mjs nightly' locally."

@@ -1,0 +1,22 @@
+{
+  "name": "paglaai-space",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PaglaAI.space static site, test suite, and the ops pipeline that keeps it healthy.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\"",
+    "check": "node scripts/validate-workflows.mjs",
+    "jobs:list": "node ops/list-jobs.mjs",
+    "jobs:run": "node ops/run-job.mjs",
+    "sitemap": "node ops/scripts/sitemap-gen.mjs",
+    "deploy:pages": "wrangler pages deploy . --project-name paglaai --branch main",
+    "deploy:worker": "npm --prefix worker run deploy"
+  },
+  "devDependencies": {
+    "yaml": "^2.6.1"
+  }
+}

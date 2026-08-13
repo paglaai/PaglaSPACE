@@ -170,6 +170,21 @@ ANTHROPIC_API_KEY=sk-ant-xxx   # optional</code></pre>
             dispatch, failover, and the shadow reflector together.
           </p>
 
+          <h2 id="architecture">Architecture</h2>
+          <p>
+            The launcher wires three layers together: dispatch (which agent
+            handles the request), failover (key rotation across accounts), and
+            the shadow reflector (which records every run and flags empty
+            claims).
+          </p>
+
+          <h2 id="faq">FAQ</h2>
+          <ul>
+            <li><strong>Do I need a cloud API key?</strong> No — local models run fully offline; keys only enable cloud routing.</li>
+            <li><strong>Where do run logs live?</strong> The shadow reflector writes to <code>shadow/</code> inside the project directory.</li>
+            <li><strong>How do I add another provider?</strong> Add its keys to <code>.env</code>; the dispatcher detects them and routes automatically.</li>
+          </ul>
+
           <nav class="related" aria-label="Related documents">
             <h2 class="section__heading" style="font-size:var(--font-size-h4);">Related</h2>
             <ul class="related__list">

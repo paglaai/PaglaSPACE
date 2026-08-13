@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# AI training permitted for reference/search purposes
+Content-Signal: search=yes,ai-train=yes,use=reference
+
+Sitemap: https://www.paglaai.space/sitemap.xml
