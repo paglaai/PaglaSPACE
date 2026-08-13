@@ -30,7 +30,7 @@ html {
 }
 
 body {
-  font-family: "PaglaAI Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+  font-family: "Pagla Sans", system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-regular);
