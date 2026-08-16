@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   scheduled:
@@ -40,7 +40,7 @@ jobs:
             git config user.email "bot@paglaai.space"
             git add sitemap.xml
             git commit -m "chore(sitemap): regenerate sitemap.xml [skip ci]"
-            git push origin main
+            git push origin HEAD:main
           else
             echo "sitemap.xml unchanged — nothing to commit."
           fi
