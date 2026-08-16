@@ -40,7 +40,7 @@
 }
 
 .wordmark {
-  font-family: "PaglaAI Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+  font-family: "Pagla Sans", system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   font-weight: var(--font-weight-light);
   font-size: var(--font-size-h4);
@@ -189,7 +189,7 @@
 }
 
 .hero__content {
-  max-width: var(--font-max-width-body);
+  max-width: var(--layout-reading);
 }
 
 .hero--split .hero__content {
@@ -657,6 +657,8 @@
 
 /* ---- Breadcrumbs ---- */
 .breadcrumbs {
+  max-width: var(--layout-reading);
+  margin-inline: auto;
   margin-bottom: var(--space-6);
 }
 
@@ -768,7 +770,7 @@
 }
 
 .specimen__wordmark {
-  font-family: "PaglaAI Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+  font-family: "Pagla Sans", system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   font-size: var(--font-size-display);
   font-weight: var(--font-weight-light);
@@ -874,6 +876,14 @@
   margin: 0;
 }
 
+/* The blog feed (filter + cards) shares the reading measure so it aligns
+   with the article pages and never blows out to the full 75rem container. */
+.post-list,
+.chips {
+  max-width: var(--layout-reading);
+  margin-inline: auto;
+}
+
 /* ---- Pagination ---- */
 .pagination {
   display: flex;
@@ -970,6 +980,15 @@
 
 .docs-content {
   min-width: 0;
+  max-width: var(--layout-reading);
+  margin-inline: auto;
+}
+
+/* Long-form children share the reading measure so headings, paragraphs,
+   and lists align to one consistent left edge instead of wrapping at
+   different widths. */
+.docs-content > * {
+  max-width: 100%;
 }
 
 .docs-content h1 {
@@ -1238,7 +1257,7 @@
 }
 
 .footer-wordmark {
-  font-family: "PaglaAI Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+  font-family: "Pagla Sans", system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   font-weight: var(--font-weight-light);
   font-size: var(--font-size-h4);
