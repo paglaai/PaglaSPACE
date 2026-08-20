@@ -1,8 +1,8 @@
 {
-  "name": "kamla-worker",
+  "name": "ops-worker",
   "private": true,
   "type": "module",
-  "description": "PaglaAI jobs Worker: cron-triggered health checks, search pings, and GitHub job dispatch.",
+  "description": "PaglaAI Operations Worker: cron-triggered health checks, search pings, and GitHub job dispatch.",
   "scripts": {
     "dev": "wrangler dev --test-scheduled",
     "deploy": "wrangler deploy",
