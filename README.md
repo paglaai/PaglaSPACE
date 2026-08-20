@@ -35,6 +35,16 @@ Requires Node.js ≥ 20.
 `nightly.yml`), and on Cloudflare cron triggers (the `worker/`). See
 [`ops/README.md`](ops/README.md) for the full system design.
 
+## Operations Team
+
+PaglaAI operates with a dedicated Operations Team under AYNAGHOR.
+
+- PaglaAI Operations: `ops@paglaai.space`
+- AYNAGHOR Operations: `ops@aynaghor.space`
+
+The Operations Team owns the site's deployment, health checks, scheduled jobs,
+and operational automation.
+
 ## Deploying
 
 Deploys happen automatically from `main` via `deploy.yml` (Pages + Worker)
@@ -45,7 +55,7 @@ production branch is `production`, `deploy.yml` deploys with
 
 - `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (Actions)
 - `PAGLAAI_GITHUB_TOKEN` (Actions, so the Worker can dispatch jobs)
-- `WORKER_URL` (Actions variable: `https://kamla.aynaghor.workers.dev`)
+- `WORKER_URL` (Actions variable: `https://ops.aynaghor.workers.dev`)
 
 ## Releases
 
