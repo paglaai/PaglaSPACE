@@ -41,10 +41,10 @@ the Pages Functions all read from that one file, so there is no drift between
               │              │ fetch(): /api/*    │
               │              └────────────────────┘
               │
-   ┌──────────▼───────────┐
-   │ ops/run-job.mjs      │  resolves a job name/category → spawns the
-   │ ops/list-jobs.mjs    │  command declared in ops/jobs.json, logs to
-   └──────────────────────┘  ops/logs/, exits non-zero on failure
+   ┌──────────▼───────────┐  resolves a job name/category → spawns the
+   │ ops/run-job.mjs      │  command declared in ops/jobs.json, logs to
+   │ ops/list-jobs.mjs    │  ops/logs/, exits non-zero on failure
+   └──────────────────────┘
 ```
 
 - **On-demand**: open *Actions → Ops · On-demand → Run workflow*, enter a job
@@ -53,8 +53,8 @@ the Pages Functions all read from that one file, so there is no drift between
 - **Scheduled / cron**: `scheduled.yml` and `nightly.yml` fire on their
   crons and run every job in that category via `ops/run-job.mjs`.
 - **Nightly**: the deep link-and-asset audit runs at `30 2 * * *`.
-- **Cloudflare cron**: the Worker health-check runs every 15 minutes and
-  dispatches GitHub jobs when something is down; heavier work that needs to
+- **Cloudflare cron**: the Operations Worker health-check runs every 15 minutes
+  and dispatches GitHub jobs when something is down; heavier work that needs to
   commit (sitemap regeneration) is delegated back to GitHub Actions.
 
 ## Running jobs
@@ -116,8 +116,18 @@ Already configured in the repo (Settings → Secrets and variables → Actions):
 | `CLOUDFLARE_API_TOKEN` | Actions secret | Deploy Pages + Worker on the AYNAGHOR account (`bd99f086…`). Scoped with `Pages:Edit`, `Workers Scripts:Edit`. |
 | `CLOUDFLARE_ACCOUNT_ID` | Actions secret | `bd99f086b0a1faea1aafc301735623da` (AYNAGHOR). |
 | `PAGLAAI_GITHUB_TOKEN` | Actions secret | Passed to the Worker so cron jobs can dispatch GitHub workflows. |
-| `WORKER_URL` | Actions variable | `https://kamla.aynaghor.workers.dev`, used by `verify-worker`. |
+| `WORKER_URL` | Actions variable | `https://ops.aynaghor.workers.dev`, used by `verify-worker`. |
 | `JOBS_API_TOKEN` (optional) | Pages + Worker | Bearer token guarding `POST /api/jobs/:name/run`. |
+
+## Operations Team
+
+The PaglaAI Operations Team is the operational identity for this infrastructure.
+
+- PaglaAI Operations: `ops@paglaai.space`
+- AYNAGHOR Operations: `ops@aynaghor.space`
+
+The Operations Team owns deployment, health checks, scheduled jobs, sitemap
+publication, search pings, and operational automation.
 
 ## Deployment topology
 
@@ -127,8 +137,8 @@ Already configured in the repo (Settings → Secrets and variables → Actions):
 - **Production branch**: the Pages project's production branch is `production`,
   so `deploy.yml` explicitly deploys `--branch production` (a `main` deploy
   would only update the `main.pagla-ai-hub.pages.dev` preview).
-- **Worker**: `kamla` in the same AYNAGHOR account (account id is pinned in
-  `worker/wrangler.toml`), public URL `https://kamla.aynaghor.workers.dev`.
+- **Worker**: `ops` in the same AYNAGHOR account (account id is pinned in
+  `worker/wrangler.toml`), public URL `https://ops.aynaghor.workers.dev`.
 - **Auth**: deploys use the `CLOUDFLARE_API_TOKEN` Actions secret — the scoped
   API Token **"OpenCode"** (id `b2f57937…`, full AYNAGHOR account access,
   expires `2027-08-13`). Note: account-scoped tokens are only verifiable via
