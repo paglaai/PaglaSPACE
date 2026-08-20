@@ -54,8 +54,10 @@ production branch is `production`, `deploy.yml` deploys with
 `--branch production`. Secrets are already configured:
 
 - `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (Actions)
-- `PAGLAAI_GITHUB_TOKEN` (Actions, so the Worker can dispatch jobs)
-- `WORKER_URL` (Actions variable: `https://ops.aynaghor.workers.dev`)
+- `PAGLAAI_GITHUB_TOKEN` (Actions, so the Operations Worker can dispatch jobs)
+
+The Operations Worker is deployed as `ops` at
+`https://ops.aynaghor.workers.dev`.
 
 ## Releases
 
