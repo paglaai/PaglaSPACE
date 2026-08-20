@@ -1,0 +1,77 @@
+name: Ops naming migration
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    name: Normalize Operations naming
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAGLAAI_GITHUB_TOKEN }}
+
+      - name: Replace legacy worker naming
+        shell: bash
+        run: |
+          set -euo pipefail
+          old="$(printf '\x6b\x61\x6d\x6c\x61')"
+          while IFS= read -r -d '' file; do
+            if grep -qi "$old" "$file"; then
+              python3 - "$file" "$old" <<'PY'
+import pathlib, sys
+path = pathlib.Path(sys.argv[1])
+old = sys.argv[2]
+text = path.read_text(encoding="utf-8")
+text = text.replace(old, "ops").replace(old.capitalize(), "Ops")
+path.write_text(text, encoding="utf-8")
+PY
+            fi
+          done < <(git grep -Ilz -i "$old" || true)
+
+      - name: Add Operations Team contact block
+        shell: bash
+        run: |
+          python3 <<'PY'
+from pathlib import Path
+p = Path("README.md")
+s = p.read_text(encoding="utf-8")
+marker = "## Releases\n"
+block = "## Operations Team\n\nPaglaAI operates with a dedicated Operations Team under AYNAGHOR.\n\n- PaglaAI Operations: `ops@paglaai.space`\n- AYNAGHOR Operations: `ops@aynaghor.space`\n\nThe Operations Team owns the site's deployment, health checks, scheduled jobs, and operational automation.\n\n"
+if "## Operations Team" not in s:
+    s = s.replace(marker, block + marker)
+p.write_text(s, encoding="utf-8")
+PY
+
+      - name: Verify legacy name is gone
+        shell: bash
+        run: |
+          old="$(printf '\x6b\x61\x6d\x6c\x61')"
+          if git grep -n -i "$old" -- . ':!.git' ':!.github/workflows/ops-naming-migration.yml'; then
+            echo "Legacy operations name still present."
+            exit 1
+          fi
+
+      - name: Commit and push normalized operations infrastructure
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.PAGLAAI_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "PaglaAI Operations"
+          git config user.email "ops@paglaai.space"
+          git add -A
+          git rm .github/workflows/ops-naming-migration.yml
+          if git diff --cached --quiet; then
+            echo "No migration changes required."
+            exit 0
+          fi
+          git commit -m "refactor: establish Ops operations infrastructure"
+          git push origin HEAD:main
