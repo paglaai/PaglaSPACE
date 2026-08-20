@@ -115,8 +115,7 @@ Already configured in the repo (Settings → Secrets and variables → Actions):
 | ---- | ----- | ------- |
 | `CLOUDFLARE_API_TOKEN` | Actions secret | Deploy Pages + Worker on the AYNAGHOR account (`bd99f086…`). Scoped with `Pages:Edit`, `Workers Scripts:Edit`. |
 | `CLOUDFLARE_ACCOUNT_ID` | Actions secret | `bd99f086b0a1faea1aafc301735623da` (AYNAGHOR). |
-| `PAGLAAI_GITHUB_TOKEN` | Actions secret | Passed to the Worker so cron jobs can dispatch GitHub workflows. |
-| `WORKER_URL` | Actions variable | `https://ops.aynaghor.workers.dev`, used by `verify-worker`. |
+| `PAGLAAI_GITHUB_TOKEN` | Actions secret | Passed to the Operations Worker so cron jobs can dispatch GitHub workflows. |
 | `JOBS_API_TOKEN` (optional) | Pages + Worker | Bearer token guarding `POST /api/jobs/:name/run`. |
 
 ## Operations Team
