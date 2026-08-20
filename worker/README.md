@@ -1,4 +1,4 @@
-# Kamla — PaglaAI jobs Worker
+# Ops — PaglaAI Operations Worker
 
 A Cloudflare Worker that executes the always-on half of the PaglaOps pipeline.
 It runs on Cloudflare cron triggers (no GitHub involvement needed for cheap,
@@ -55,5 +55,5 @@ curl http://localhost:8787/api/jobs
 npm run deploy         # wrangler deploy
 ```
 
-In CI, `deploy.yml` runs the tests first, deploys Pages and Kamla, then
+In CI, `deploy.yml` runs the tests first, deploys Pages and the Ops Worker, then
 pushes the `GITHUB_TOKEN` secret when the repository secret is present.
