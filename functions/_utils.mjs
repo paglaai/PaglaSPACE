@@ -21,7 +21,7 @@ export async function fetchWithTimeout(url, ms = 15000) {
 
 export async function dispatchGitHubJob(env, jobName) {
   const token = env.GITHUB_TOKEN;
-  const repo = env.GITHUB_REPO || "paglaai/PaglaAI.space";
+  const repo = env.GITHUB_REPO || "paglaai/paglaai.space";
   if (!token) return { dispatched: false, reason: "GITHUB_TOKEN not configured" };
   const res = await fetch(
     `https://api.github.com/repos/${repo}/actions/workflows/ops.yml/dispatches`,

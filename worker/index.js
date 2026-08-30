@@ -62,7 +62,7 @@ async function pingSearchEngines(site) {
 
 async function dispatchGitHubJob(env, jobName) {
   const token = env.GITHUB_TOKEN;
-  const repo = env.GITHUB_REPO || "paglaai/PaglaAI.space";
+  const repo = env.GITHUB_REPO || "paglaai/paglaai.space";
   if (!token) {
     return { dispatched: false, reason: "GITHUB_TOKEN not configured" };
   }

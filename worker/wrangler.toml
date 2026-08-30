@@ -15,5 +15,5 @@ crons = [
 ]
 
 [vars]
-GITHUB_REPO = "paglaai/PaglaAI.space"
+GITHUB_REPO = "paglaai/paglaai.space"
 SITE_URL = "https://www.paglaai.space"

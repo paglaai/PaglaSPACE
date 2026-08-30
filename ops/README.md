@@ -76,7 +76,7 @@ Output and a `last-run.json` summary are written to `ops/logs/` (gitignored).
 ```jsonc
 {
   "version": "1.0",
-  "repo": "paglaai/PaglaAI.space",
+  "repo": "paglaai/paglaai.space",
   "siteUrl": "https://www.paglaai.space",
   "jobs": [
     {
