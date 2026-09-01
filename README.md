@@ -1,7 +1,9 @@
 # PaglaAI.space
 
+[![Deploy](https://github.com/paglaai/paglaai.space/actions/workflows/deploy.yml/badge.svg)](https://github.com/paglaai/paglaai.space/actions/workflows/deploy.yml)
+
 The public home of PaglaAI — a local-first AI ecosystem. Static HTML/CSS/JS,
-deployed to Cloudflare Pages, kept healthy by an automated ops pipeline.
+deployed to Cloudflare Pages (`pagla-ai-hub.pages.dev` → `paglaai.space` via `AYNAGHOR` zone `e84613` / now `PaglaAI` `0af419` `jean/mark`), kept healthy by an automated ops pipeline.
 
 ## Repository layout
 

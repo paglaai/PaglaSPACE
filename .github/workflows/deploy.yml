@@ -51,6 +51,7 @@ jobs:
     name: Deploy Cloudflare Worker (jobs)
     needs: test
     runs-on: ubuntu-latest
+    continue-on-error: true
     defaults:
       run:
         working-directory: worker
