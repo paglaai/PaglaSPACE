@@ -45,7 +45,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name paglaai --branch production
+          command: pages deploy . --project-name paglaai --branch main
 
   worker:
     name: Deploy Cloudflare Worker (jobs)
