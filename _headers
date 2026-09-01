@@ -10,8 +10,5 @@
 /assets/css/*
   Cache-Control: public, max-age=3600, must-revalidate
 
-/assets/*
-  Cache-Control: public, max-age=86400
-
 /api/*
   Cache-Control: no-store

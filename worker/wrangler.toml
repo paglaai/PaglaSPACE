@@ -5,7 +5,7 @@
 name = "ops"
 main = "index.js"
 compatibility_date = "2025-06-01"
-account_id = "bd99f086b0a1faea1aafc301735623da"
+account_id = "ca7920a5ed3f813e6d4c342535b2cbb2"
 
 [triggers]
 crons = [
