@@ -1,1 +1,150 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PaglaAI — The local AI ecosystem</title>
+  <meta name="description" content="PaglaAI is a local-first AI ecosystem: models, gateways, and tools that run on your hardware, built openly.">
+  <link rel="icon" href="assets/brand/pagla-face-black.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/tokens.css?v=20250911">
+  <link rel="stylesheet" href="assets/css/base.css?v=20250911">
+  <link rel="stylesheet" href="assets/css/utilities.css?v=20250911">
+  <link rel="stylesheet" href="assets/css/site.css?v=20250911">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="index.html" aria-label="PaglaAI home">PaglaAI</a>
+      <nav class="site-nav" data-site-nav aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="products/paglamlx.html">Products</a></li>
+          <li><a class="site-nav__link" href="docs/index.html">Docs</a></li>
+          <li><a class="site-nav__link" href="brand/index.html">BrandKit</a></li>
+          <li><a class="site-nav__link" href="blog/index.html">Blog</a></li>
+          <li><a class="site-nav__link" href="about/index.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="utility">
+        <button type="button" class="icon-btn" data-search-open aria-label="Search the site">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="7" cy="7" r="4"></circle>
+            <path d="M10.2 10.2 14 14"></path>
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="8" cy="8" r="3"></circle>
+            <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.6 2.6l1.4 1.4M12 12l1.4 1.4M13.4 2.6L12 4M4 12l-1.4 1.4"></path>
+          </svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M13 9.5A5.5 5.5 0 1 1 6.5 3 5.5 5.5 0 0 0 13 9.5Z"></path>
+          </svg>
+          <span data-theme-label>Dark</span>
+        </button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M2 4h12M2 8h12M2 12h12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero--center">
+      <div class="container">
+        <div class="hero__content">
+          <p class="overline">PAGLA · LOCAL AI, OPENLY BUILT</p>
+          <h1 class="hero__headline">The local AI ecosystem</h1>
+          <p class="hero__summary">
+            PaglaAI is a family of local-first tools — models, gateways, and
+            launchers that run on your hardware and speak to each other openly.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="products/paglamlx.html">Explore products</a>
+            <a class="btn btn--ghost" href="docs/index.html">Read the docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="ecosystem-heading">
+      <div class="container">
+        <h2 id="ecosystem-heading" class="section__heading section__heading--center">The ecosystem</h2>
+        <div class="section__content">
+          <ul>
+            <li><strong>PaglaMLX</strong> — LLM orchestration optimized for Apple Silicon, managed from the menu bar.</li>
+            <li><strong>PaglaROUTER</strong> — a Cloudflare Worker gateway routing requests across providers.</li>
+            <li><strong>PaglaDESIGN</strong> — the design authority: tokens, components, and brand, versioned.</li>
+            <li><strong>PaglaGPT</strong> — the official AI Architect (Custom GPT + local interface). <strong>PaglaCPP · PaglaAPI · PaglaOS</strong> — further roadmap in the same family.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="products-heading">
+      <div class="container">
+        <h2 id="products-heading" class="section__heading section__heading--center">What exists today</h2>
+        <div class="grid grid--3">
+          <div class="card">
+            <h3 class="card__name">PaglaMLX</h3>
+            <p class="card__line">A local gateway for MLX models and cloud providers, in one menu-bar app.</p>
+            <p class="u-mt-4"><a href="products/paglamlx.html">Learn more</a></p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">PaglaROUTER</h3>
+            <p class="card__line">A serverless gateway that routes LLM traffic across providers with failover.</p>
+            <p class="u-mt-4"><a href="https://github.com/paglaai/PaglaROUTER">View source</a></p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">PaglaGPT</h3>
+            <p class="card__line">Official AI Architect — Custom GPT + local-first interface for the whole stack.</p>
+            <p class="u-mt-4"><a href="products/paglagpt.html">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="community-heading">
+      <div class="container">
+        <h2 id="community-heading" class="cta__heading">Built in the open, for your machine</h2>
+        <p class="cta__line">Follow the work, open an issue, or run it yourself. The ecosystem is one checkout away.</p>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="https://github.com/paglaai">View the organization</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-col__subhead">Products</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="products/paglamlx.html">PaglaMLX</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/PaglaROUTER">PaglaROUTER</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign">PaglaDESIGN</a></li>
+            <li><a class="footer-col__link" href="products/paglagpt.html">PaglaGPT</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/PaglaCHAT">PaglaCHAT</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__subhead">Company</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="about/index.html">About</a></li>
+            <li><a class="footer-col__link" href="docs/index.html">Docs</a></li>
+            <li><a class="footer-col__link" href="blog/index.html">Blog</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai">GitHub</a></li>
+            <li><a class="footer-col__link" href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="u-mt-4">PaglaAI © 2015–2026</p>
+    </div>
+  </footer>
+</body>
+</html>
