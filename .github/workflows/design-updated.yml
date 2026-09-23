@@ -1,0 +1,45 @@
+name: Rebuild on design.updated
+
+on:
+  repository_dispatch:
+    types: [design.updated]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: design-updated-paglaai
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Redeploy after DesignDNA / tokens change
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log payload
+        run: |
+          echo "Source: ${{ github.event.client_payload.source }}"
+          echo "SHA: ${{ github.event.client_payload.sha }}"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name paglaai --branch main
