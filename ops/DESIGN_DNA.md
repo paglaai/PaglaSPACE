@@ -10,6 +10,6 @@ This site **inherits** DesignDNA from PaglaDESIGN. It does not invent UI.
 
 Package / app storefront for the ecosystem. Domain owned. DNS + catalog generator planned. Catalog must reflect public repos, releases, and packages — not hand-edited lists.
 
-## OpenAI-style editorial posture
+## Minimalist editorial posture
 
-See PaglaDESIGN `site/OPENAI_STYLE_REDESIGN.md`. Implementation lands on this repo under DesignDNA rules only.
+See PaglaDESIGN design authority guidelines. Implementation lands on this repo under DesignDNA rules only.

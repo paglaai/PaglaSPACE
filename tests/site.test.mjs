@@ -145,6 +145,78 @@ describe("sitemap.html", () => {
   });
 });
 
+describe("SEO and social metadata", () => {
+  for (const page of pages) {
+    if (page === "404.html") {
+      test("404.html specifies noindex robots and social fallback metadata", () => {
+        const html = readPage(page);
+        assert.match(html, /name="robots"\s+content="[^"]*noindex/i, "404.html missing noindex robots tag");
+        assert.match(html, /property="og:site_name"\s+content="PaglaAI"/, "404.html missing og:site_name");
+        assert.match(html, /name="twitter:card"\s+content="summary_large_image"/, "404.html missing twitter:card");
+      });
+      continue;
+    }
+
+    test(`${page} declares canonical link matching cleanUrl`, () => {
+      const html = readPage(page);
+      const expectedUrl = `${SITE_URL}${cleanUrl(page)}`;
+      const canonMatch = /<link\s+rel="canonical"\s+href="([^"]+)"/.exec(html);
+      assert.ok(canonMatch, `${page}: missing canonical link`);
+      assert.equal(canonMatch[1], expectedUrl, `${page}: canonical URL mismatch`);
+    });
+
+    test(`${page} declares complete and valid Open Graph tags`, () => {
+      const html = readPage(page);
+      const expectedUrl = `${SITE_URL}${cleanUrl(page)}`;
+      const expectedType = page.startsWith("blog/") && page !== "blog/index.html" ? "article" : "website";
+
+      const siteName = /property="og:site_name"\s+content="([^"]+)"/.exec(html);
+      assert.ok(siteName && siteName[1] === "PaglaAI", `${page}: og:site_name missing or incorrect`);
+
+      const ogUrl = /property="og:url"\s+content="([^"]+)"/.exec(html);
+      assert.ok(ogUrl && ogUrl[1] === expectedUrl, `${page}: og:url mismatch`);
+
+      const ogType = /property="og:type"\s+content="([^"]+)"/.exec(html);
+      assert.ok(ogType && ogType[1] === expectedType, `${page}: og:type mismatch`);
+
+      const ogImg = /property="og:image"\s+content="([^"]+)"/.exec(html);
+      assert.ok(ogImg && ogImg[1] === `${SITE_URL}/assets/brand/paglaai-mark.png`, `${page}: og:image mismatch`);
+
+      const ogTitle = /property="og:title"\s+content="([^"]+)"/.exec(html);
+      assert.ok(ogTitle && ogTitle[1].trim().length > 0, `${page}: og:title missing or empty`);
+
+      const ogDesc = /property="og:description"\s+content="([^"]+)"/.exec(html);
+      assert.ok(ogDesc && ogDesc[1].trim().length > 0, `${page}: og:description missing or empty`);
+    });
+
+    test(`${page} declares complete Twitter card tags`, () => {
+      const html = readPage(page);
+      const twCard = /name="twitter:card"\s+content="([^"]+)"/.exec(html);
+      assert.ok(twCard && twCard[1] === "summary_large_image", `${page}: twitter:card missing or incorrect`);
+
+      const twImg = /name="twitter:image"\s+content="([^"]+)"/.exec(html);
+      assert.ok(twImg && twImg[1] === `${SITE_URL}/assets/brand/paglaai-mark.png`, `${page}: twitter:image mismatch`);
+
+      const twTitle = /name="twitter:title"\s+content="([^"]+)"/.exec(html);
+      assert.ok(twTitle && twTitle[1].trim().length > 0, `${page}: twitter:title missing or empty`);
+
+      const twDesc = /name="twitter:description"\s+content="([^"]+)"/.exec(html);
+      assert.ok(twDesc && twDesc[1].trim().length > 0, `${page}: twitter:description missing or empty`);
+    });
+
+    test(`${page} declares valid JSON-LD structured data`, () => {
+      const html = readPage(page);
+      const jsonLdMatch = /<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html);
+      assert.ok(jsonLdMatch, `${page}: missing JSON-LD structured data`);
+      let parsed;
+      assert.doesNotThrow(() => {
+        parsed = JSON.parse(jsonLdMatch[1]);
+      }, `${page}: invalid JSON in structured data block`);
+      assert.equal(parsed["@context"], "https://schema.org", `${page}: JSON-LD missing @context https://schema.org`);
+    });
+  }
+});
+
 describe("AI indexing surface", () => {
   test("robots.txt exists and points at the sitemap", () => {
     const robots = readPage("robots.txt");
