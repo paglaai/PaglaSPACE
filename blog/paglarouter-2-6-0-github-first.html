@@ -43,6 +43,15 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NKTG3P4M3R');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -80,12 +89,19 @@
         <p class="overline">RELEASE NOTES · 2026-08-02 · 4 min read</p>
         <h1>PaglaROUTER 2.6.0 — GitHub-first polish</h1>
         <p>PaglaROUTER 2.6.0 polished its GitHub-first story. Native GitHub Pages documentation replaces the old standalone site, community files — CONTRIBUTING, CODE_OF_CONDUCT, SECURITY — are in place, and the branding now matches the PaglaAI identity: monochrome, one accent, the Pagla Face.</p>
-        <p>Underneath, the router is unchanged in shape: a stateless Cloudflare Worker that presents one OpenAI and one Anthropic endpoint over every account you own, failing over silently when a provider is down, rate-limited, or out of quota. v2.6.0 is presentation and housekeeping, not a behavioral change.</p>
+        <p>Underneath, the router is unchanged in shape: a stateless Cloudflare Worker that presents standard <code>/v1</code> and Anthropic endpoints over every account you own, failing over silently when a provider is down, rate-limited, or out of quota. v2.6.0 is presentation and housekeeping, not a behavioral change.</p>
         <p>If you run multiple provider accounts and hate copy-pasting keys per project, this is the release that makes the project look as finished as it behaves.</p>
         <p class="u-mt-8"><a class="btn btn--ghost" href="../blog/index.html">← Back to the blog</a></p>
       </article>
     </div>
   </main>
+    <dialog class="search-dialog" data-search-dialog data-root="../">
+    <label class="search-dialog__label" for="site-search">Search the site</label>
+    <input class="search-dialog__input" id="site-search" type="search" data-search-input placeholder="Type a page name" autocomplete="off">
+    <ul class="search-dialog__results" data-search-results></ul>
+    <p class="search-dialog__empty" data-search-empty hidden>No results. Try a page name, like "docs".</p>
+  </dialog>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">

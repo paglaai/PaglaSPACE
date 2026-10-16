@@ -1,3 +1,3 @@
 - [[openai-domain-verification]] — OpenAI domain ownership verification for paglaai.space
 - [[cloudflare-dns]] — Cloudflare multi-account DNS management and duplicate zone cleanup
-- [[footer-redesign]] — OpenAI-scale 5-col footer propagation
+- [[footer-redesign]] — Editorial-scale 5-col footer propagation

@@ -39,6 +39,15 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NKTG3P4M3R');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -54,36 +63,224 @@
           <li><a class="site-nav__link" href="../about/index.html">About</a></li>
         </ul>
       </nav>
+      <div class="utility">
+        <button type="button" class="icon-btn" data-search-open aria-label="Search the site">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="7" cy="7" r="4"></circle>
+            <path d="M10.2 10.2 14 14"></path>
+          </svg>
+        </button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="8" cy="8" r="3"></circle>
+            <path d="M8 1v2M8 13v2M1 8h2M13 8h2M2.6 2.6l1.4 1.4M12 12l1.4 1.4M13.4 2.6L12 4M4 12l-1.4 1.4"></path>
+          </svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M13 9.5A5.5 5.5 0 1 1 6.5 3 5.5 5.5 0 0 0 13 9.5Z"></path>
+          </svg>
+          <span data-theme-label>Dark</span>
+        </button>
+        <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M2 4h12M2 8h12M2 12h12"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
   <main id="main">
-    <section class="hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumbs__list">
+          <li><a class="breadcrumbs__link" href="../index.html">Home</a></li>
+          <li><span class="breadcrumbs__sep" aria-hidden="true">/</span></li>
+          <li><a class="breadcrumbs__link" href="paglamlx.html">Products</a></li>
+          <li><span class="breadcrumbs__sep" aria-hidden="true">/</span></li>
+          <li><span class="breadcrumbs__current" aria-current="page">PaglaGPT</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="hero hero--center">
       <div class="container">
-        <p class="overline">PRODUCT · MODEL INTERFACE</p>
-        <h1 class="hero__headline">PaglaGPT</h1>
-        <p class="hero__summary">The official AI Architect of the PaglaAI ecosystem. Local-first. Design-first. Hybrid local+cloud. Built for Apple Silicon and the full Pagla stack.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="https://github.com/paglaai/PaglaGPT">View source</a>
-          <a class="btn btn--ghost" href="https://chatgpt.com/gpts">Deploy as Custom GPT</a>
+        <div class="hero__content">
+          <p class="overline">PRODUCT · MODEL ARCHITECT</p>
+          <h1 class="hero__headline">PaglaGPT</h1>
+          <p class="hero__summary">The official AI Architect of the PaglaAI ecosystem. Local-first, design-first, and hybrid local+cloud. Built for Apple Silicon hardware constraints and the full Pagla stack.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://github.com/paglaai/PaglaGPT">View repository</a>
+            <a class="btn btn--ghost" href="../docs/index.html">Read documentation</a>
+          </div>
         </div>
       </div>
     </section>
-    <section class="section">
+
+    <section class="section section--surface" aria-labelledby="architect-heading">
       <div class="container">
-        <h2 class="section__heading">What it does</h2>
-        <ul>
-          <li>Acts as the structured technical peer for PaglaAI / AYNAGHOR work</li>
-          <li>Enforces design-first sequencing and the 16 GB Apple Silicon ceiling</li>
-          <li>Stays aligned with PaglaDESIGN, PaglaMLX, PaglaROUTER, and the ecosystem registry</li>
-          <li>Ships as an Official OpenAI Custom GPT configuration plus this product surface</li>
-        </ul>
-        <p class="u-mt-4"><a href="https://github.com/paglaai/PaglaGPT">github.com/paglaai/PaglaGPT</a></p>
+        <h2 id="architect-heading" class="section__heading section__heading--center">Architectural role &amp; governance</h2>
+        <div class="grid grid--3">
+          <div class="card">
+            <h3 class="card__name">Design-first sequencing</h3>
+            <p class="card__line">Enforces the design authority from PaglaDESIGN before any implementation begins, preventing UI drift and fragmented CSS.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Hardware realism</h3>
+            <p class="card__line">Enforces the 16 GB Apple Silicon memory ceiling, ensuring models and workloads run comfortably on consumer Apple Silicon hardware.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Ecosystem alignment</h3>
+            <p class="card__line">Stays synchronized with PaglaMLX, PaglaROUTER, PaglaSHELL, and the canonical registry in ecosystem.json.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <h2 id="capabilities-heading" class="section__heading">Core capabilities</h2>
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 class="card__name">Technical peer review</h3>
+            <p class="card__line">Acts as an uncompromising architectural peer, scrutinizing data contracts, tool boundaries, and local runtime efficiency.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Multi-surface deployment</h3>
+            <p class="card__line">Operates both as a custom model assistant configuration and as a local-first interface connected via PaglaROUTER and PaglaMLX.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Zero telemetry posture</h3>
+            <p class="card__line">Promotes strict data sovereignty, deterministic prompt templates, and local execution kernels without cloud lock-in.</p>
+          </div>
+          <div class="card">
+            <h3 class="card__name">RAG &amp; token grounding</h3>
+            <p class="card__line">Interacts with local MCP servers to query design tokens and architectural RFCs via pure lexical BM25 retrieval.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="get-started-heading">
+      <div class="container">
+        <h2 id="get-started-heading" class="cta__heading">Explore the architectural specification</h2>
+        <p class="cta__line">Inspect the system prompt, guidelines, and integration manuals on GitHub.</p>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="https://github.com/paglaai/PaglaGPT">github.com/paglaai/PaglaGPT</a>
+        </div>
       </div>
     </section>
   </main>
+
+  <dialog class="search-dialog" data-search-dialog data-root="../">
+    <label class="search-dialog__label" for="site-search">Search the site</label>
+    <input class="search-dialog__input" id="site-search" type="search" data-search-input placeholder="Type a page name" autocomplete="off">
+    <ul class="search-dialog__results" data-search-results></ul>
+    <p class="search-dialog__empty" data-search-empty hidden>No results. Try a page name, like "docs".</p>
+  </dialog>
+
   <footer class="site-footer">
     <div class="container">
-      <p><a href="../index.html">← Back to PaglaAI</a></p>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-col__subhead">Research</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign">Research Index</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign/tree/main/design-system">Research Overview</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign/blob/main/design-system/COLOR_SYSTEM.md">Color &amp; Tokens</a></li>
+          </ul>
+          <p class="footer-col__subhead">Latest Advancements</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../blog/pagladesign-v1-3-agent-manual.html">PaglaDESIGN v1.7</a></li>
+            <li><a class="footer-col__link" href="../blog/pagladesign-v1-2-maturation-pass.html">PaglaDESIGN v1.6</a></li>
+            <li><a class="footer-col__link" href="../blog/pagladesign-v1-0-reference-css.html">PaglaDESIGN v1.0</a></li>
+          </ul>
+          <p class="footer-col__subhead">Safety</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign/blob/main/design-system/ACCESSIBILITY.md">Accessibility</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign/blob/main/design-system/MOTION.md">Motion Safety</a></li>
+            <li><a class="footer-col__link" href="../brand/index.html">Security &amp; Privacy</a></li>
+            <li><a class="footer-col__link" href="../docs/index.html">Trust &amp; Transparency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__subhead">Products</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="paglamlx.html">PaglaMLX ↗</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/paglarouter">PaglaROUTER ↗</a></li>
+            <li><a class="footer-col__link" href="paglagpt.html">PaglaGPT ↗</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign">PaglaDESIGN ↗</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/PaglaCHAT">PaglaCHAT</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/PaglaSHELL">PaglaSHELL</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/B3K4R">B3K4R</a></li>
+            <li><a class="footer-col__link" href="../blog/index.html">Release Notes</a></li>
+          </ul>
+          <p class="footer-col__subhead">API Platform</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../docs/index.html">Overview</a></li>
+            <li><a class="footer-col__link" href="../api/reference.html">API Reference ↗</a></li>
+            <li><a class="footer-col__link" href="../brand/index.html">BrandKit</a></li>
+            <li><a class="footer-col__link" href="../docs/index.html">Docs ↗</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__subhead">Developers</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../docs/index.html">Docs ↗</a></li>
+            <li><a class="footer-col__link" href="../api/reference.html">API Reference</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/pagladesign">Design Tokens ↗</a></li>
+            <li><a class="footer-col__link" href="../brand/index.html">Resources ↗</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai">Developer Forum ↗</a></li>
+          </ul>
+          <p class="footer-col__subhead">Ecosystem</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="https://github.com/paglaai/KolponaOS">PaglaOS (KolponaOS)</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai/sanctum">SANCTUM Runtime</a></li>
+            <li><a class="footer-col__link" href="https://apphole.store">apphole.store ↗</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai">Help Center ↗</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__subhead">Company</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../about/index.html">About Us</a></li>
+            <li><a class="footer-col__link" href="../blog/index.html">Our Charter</a></li>
+            <li><a class="footer-col__link" href="../blog/reference-shelf-taught-us.html">Design Philosophy</a></li>
+            <li><a class="footer-col__link" href="../brand/index.html">Brand Identity</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai">Careers ↗</a></li>
+          </ul>
+          <p class="footer-col__subhead">Support</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="https://github.com/paglaai/paglaai.space/issues">Contact</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col__subhead">More</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../blog/index.html">Stories</a></li>
+            <li><a class="footer-col__link" href="../docs/index.html">Academy</a></li>
+            <li><a class="footer-col__link" href="https://github.com/paglaai">GitHub</a></li>
+            <li><a class="footer-col__link" href="../sitemap.html">Sitemap</a></li>
+            <li><a class="footer-col__link" href="../sitemap.xml">RSS / XML</a></li>
+          </ul>
+          <p class="footer-col__subhead">Terms &amp; Policies</p>
+          <ul class="footer-col__list">
+            <li><a class="footer-col__link" href="../about/index.html">Terms of Use</a></li>
+            <li><a class="footer-col__link" href="../about/index.html">Privacy Policy</a></li>
+            <li><a class="footer-col__link" href="../about/index.html">Other Policies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <ul class="footer-social" aria-label="Social links">
+          <li><a href="https://github.com/paglaai" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.34c-2.21.48-2.68-.94-2.68-.94-.36-.91-.89-1.15-.89-1.15-.73-.5.06-.49.06-.49.8.06 1.22.82 1.22.82.71 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.42 7.42 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.14.46.55.38A8 8 0 0 0 8 .25Z"/></svg></a></li>
+          <li><a href="https://x.com/paglaai" aria-label="X"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.6 2H14l-3.1 3.5L14.5 14h-3l-2.3-3.1L6.6 14H5l3.3-3.7L4.7 2h3.1l2.1 2.8L12.6 2Zm-1.1 10.8h1.5L6.2 3.2H4.6Z"/></svg></a></li>
+          <li><a href="https://www.linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 13h-2V9.5c0-.84-.3-1.41-1.04-1.41-.57 0-.91.38-1.06.75-.05.13-.07.31-.07.49V13H6.83s.02-5.17 0-5.71h2v.81c.27-.42.75-1.02 1.82-1.02 1.33 0 2.35.87 2.35 2.74V13ZM3 7.29h2v5.71H3ZM3.75 5.5a1.16 1.16 0 1 1 0-2.32 1.16 1.16 0 0 1 0 2.32Z"/></svg></a></li>
+          <li><a href="https://www.youtube.com" aria-label="YouTube"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M15.8 4.8a2.02 2.02 0 0 0-1.42-1.42C13.12 3 8 3 8 3s-5.12 0-6.38.38A2.02 2.02 0 0 0 .2 4.8 21.5 21.5 0 0 0 0 8a21.5 21.5 0 0 0 .2 3.2 2.02 2.02 0 0 0 1.42 1.42C2.88 13 8 13 8 13s5.12 0 6.38-.38A2.02 2.02 0 0 0 15.8 11.2 21.5 21.5 0 0 0 16 8a21.5 21.5 0 0 0-.2-3.2ZM6.5 10.5V5.5L11 8Z"/></svg></a></li>
+          <li><a href="https://discord.gg" aria-label="Discord"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.6 3.4a13.3 13.3 0 0 0-3.3-1.04.9.9 0 0 0-.45.24c-.42.64-.9 1.48-1.23 2.13a12.2 12.2 0 0 0-3.64 0c-.33-.65-.81-1.49-1.23-2.13a.9.9 0 0 0-.45-.24A13.3 13.3 0 0 0 2.4 3.4c-.6 1-1.1 2.4-1.4 3.8a12 12 0 0 0 3.6 1.8.9.9 0 0 0 .4-.3c.3-.45.6-.94.9-1.4a.9.9 0 0 1 .5-.36h.1c1.1.14 2.2.14 3.3 0h.1a.9.9 0 0 1 .5.36c.3.46.6.95.9 1.4a.9.9 0 0 0 .4.3 12 12 0 0 0 3.6-1.8c-.3-1.4-.8-2.8-1.4-3.8ZM5.5 10.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm5 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Z"/></svg></a></li>
+        </ul>
+        <span>PaglaAI © 2015–2026 <a class="footer-col__link" href="../about/index.html">Manage Cookies</a></span>
+        <span class="footer-locale"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2a12 12 0 0 1 0 12M8 2a12 12 0 0 0 0 12"/></svg> English United States</span>
+      </div>
     </div>
   </footer>
 </body>

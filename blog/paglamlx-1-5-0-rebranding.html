@@ -43,6 +43,15 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NKTG3P4M3R');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -80,12 +89,19 @@
         <p class="overline">RELEASE NOTES · 2026-08-02 · 4 min read</p>
         <h1>PaglaMLX 1.5.0 — the rebranding release</h1>
         <p>PaglaMLX became PaglaMLX. The 1.5.0 rebranding release renamed the project into the family, published its documentation and API reference, and stood up a release pipeline so every future tag ships notes automatically.</p>
-        <p>Under the hood the intent is unchanged: one local gateway on <code>:2525</code> that speaks OpenAI and Anthropic, routes by name and prefix, and falls back to cloud providers when a local model is unavailable. The menus and the docs now say the same thing, which is most of what a rebrand is for.</p>
+        <p>Under the hood the intent is unchanged: one local gateway on <code>:2525</code> that speaks standard <code>/v1</code> and Anthropic specifications, routes by name and prefix, and falls back to cloud providers when a local model is unavailable. The menus and the docs now say the same thing, which is most of what a rebrand is for.</p>
         <p>If you run models locally and want them to look like every other endpoint in your stack, this is the release that closes the naming gap.</p>
         <p class="u-mt-8"><a class="btn btn--ghost" href="../blog/index.html">← Back to the blog</a></p>
       </article>
     </div>
   </main>
+    <dialog class="search-dialog" data-search-dialog data-root="../">
+    <label class="search-dialog__label" for="site-search">Search the site</label>
+    <input class="search-dialog__input" id="site-search" type="search" data-search-input placeholder="Type a page name" autocomplete="off">
+    <ul class="search-dialog__results" data-search-results></ul>
+    <p class="search-dialog__empty" data-search-empty hidden>No results. Try a page name, like "docs".</p>
+  </dialog>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">

@@ -39,6 +39,15 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NKTG3P4M3R');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -134,8 +143,8 @@
       <div class="container">
         <h2 id="overview-heading" class="section__heading">Overview</h2>
         <p>
-          PaglaMLX is an orchestration layer that speaks both OpenAI and
-          Anthropic natively, dropping straight into any existing AI workflow.
+          PaglaMLX is an orchestration layer that speaks both standard <code>/v1</code> and
+          Anthropic specifications natively, dropping straight into any existing AI workflow.
           Local MLX models run as isolated servers on their own ports; the
           gateway routes by name, falls back to cloud providers by prefix, and
           translates protocols in both directions — streaming and tool calls
@@ -172,7 +181,7 @@
         <div class="grid grid--2">
           <div class="card">
             <h3 class="card__name">One API, two protocols</h3>
-            <p class="card__line">OpenAI <code>/v1/*</code> and Anthropic <code>/v1/messages</code>, translated bidirectionally.</p>
+            <p class="card__line">Standard <code>/v1/*</code> and Anthropic <code>/v1/messages</code>, translated bidirectionally.</p>
           </div>
           <div class="card">
             <h3 class="card__name">Auto-routing</h3>
@@ -196,7 +205,7 @@
         <div class="grid grid--3">
           <div class="card">
             <h3 class="card__name">Smart gateway</h3>
-            <p class="card__line">OpenAI-native and Anthropic-native endpoints on one local port.</p>
+            <p class="card__line">Standard <code>/v1</code> and Anthropic endpoints on one local port.</p>
           </div>
           <div class="card">
             <h3 class="card__name">Model orchestration</h3>
@@ -208,7 +217,7 @@
           </div>
           <div class="card">
             <h3 class="card__name">Cloud fallback</h3>
-            <p class="card__line">Prefix routing to OpenAI, Anthropic, Gemini, OpenRouter, Groq, and Together.</p>
+            <p class="card__line">Prefix routing across providers: Anthropic, Gemini, OpenRouter, Groq, and Together.</p>
           </div>
           <div class="card">
             <h3 class="card__name">Free Router</h3>
@@ -232,7 +241,7 @@
           </li>
           <li class="layer-list__item">
             <span class="layer-list__name">RoutingGateway (Python, :2525 /v1/*)</span>
-            <p class="layer-list__line">Translates OpenAI ↔ Anthropic, routes by name and prefix, streams.</p>
+            <p class="layer-list__line">Translates Standard /v1 ↔ Anthropic, routes by name and prefix, streams.</p>
           </li>
           <li class="layer-list__item">
             <span class="layer-list__name">Local Router</span>
@@ -240,7 +249,7 @@
           </li>
           <li class="layer-list__item">
             <span class="layer-list__name">Cloud Router</span>
-            <p class="layer-list__line">OpenAI, Anthropic, Gemini, Groq, Together by prefix.</p>
+            <p class="layer-list__line">Standard /v1, Anthropic, Gemini, Groq, Together by prefix.</p>
           </li>
           <li class="layer-list__item">
             <span class="layer-list__name">Free Router</span>
@@ -265,7 +274,7 @@ $ ./build_dmg.sh   # release build + .app + .dmg</code></pre>
           </div>
           <div class="card">
             <h3 class="card__name">Getting started</h3>
-            <p class="card__line">Set your models directory, check Python, load a model, and connect any OpenAI or Anthropic-compatible tool.</p>
+            <p class="card__line">Set your models directory, check Python, load a model, and connect any standard /v1 or Anthropic-compatible tool.</p>
             <p class="u-mt-4"><a class="btn btn--ghost" href="../docs/index.html">Start the guide</a></p>
           </div>
         </div>
@@ -344,7 +353,7 @@ $ ./build_dmg.sh   # release build + .app + .dmg</code></pre>
             <p>Download the latest <code>.dmg</code> from Releases and drag it to Applications. From source, clone, run <code>./build_dmg.sh</code>, and you're done.</p>
           </div>
           <div class="tabs__panel" id="faq-panel-2" role="tabpanel" aria-labelledby="faq-tab-2" hidden>
-            <p>Point any OpenAI- or Anthropic-compatible tool at <code>http://127.0.0.1:2525/v1</code> with the key from Settings → Network. Use <code>model=auto</code> to let the router decide, or name a specific model.</p>
+            <p>Point any standard /v1 or Anthropic-compatible tool at <code>http://127.0.0.1:2525/v1</code> with the key from Settings → Network. Use <code>model=auto</code> to let the router decide, or name a specific model.</p>
           </div>
           <div class="tabs__panel" id="faq-panel-3" role="tabpanel" aria-labelledby="faq-tab-3" hidden>
             <p>Requires macOS 14.0+, Python 3.12+, and Apple Silicon. Memory usage scales with the models you keep loaded; unloading a model frees its port and its memory.</p>

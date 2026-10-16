@@ -36,6 +36,15 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NKTG3P4M3R');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -122,6 +131,13 @@
       </section>
     </div>
   </main>
+
+    <dialog class="search-dialog" data-search-dialog data-root="">
+    <label class="search-dialog__label" for="site-search">Search the site</label>
+    <input class="search-dialog__input" id="site-search" type="search" data-search-input placeholder="Type a page name" autocomplete="off">
+    <ul class="search-dialog__results" data-search-results></ul>
+    <p class="search-dialog__empty" data-search-empty hidden>No results. Try a page name, like "docs".</p>
+  </dialog>
 
   <footer class="site-footer">
     <div class="container">

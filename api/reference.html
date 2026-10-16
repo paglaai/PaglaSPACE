@@ -36,6 +36,15 @@
     }
   }
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NKTG3P4M3R');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -113,7 +122,7 @@
           <h1><span class="endpoint-method">POST</span><span class="endpoint-path">/v1/chat/completions</span></h1>
           <p>
             Creates a model response for a chat conversation. Open to any
-            OpenAI-compatible client; routed locally, to a cloud provider, or
+            standard-compatible client; routed locally, to a cloud provider, or
             through the Free Router depending on the <code>model</code>.
           </p>
 

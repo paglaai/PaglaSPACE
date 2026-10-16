@@ -70,6 +70,7 @@
             ? "light"
             : "dark";
         applyTheme(next, true);
+        trackEvent("theme_toggle", { theme: next });
       });
     }
   }
@@ -99,6 +100,14 @@
     trigger.addEventListener("click", function () {
       setOpen(!isOpen());
     });
+    var navLinks = nav.querySelectorAll("a");
+    for (var k = 0; k < navLinks.length; k++) {
+      navLinks[k].addEventListener("click", function () {
+        if (isOpen()) {
+          setOpen(false);
+        }
+      });
+    }
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && isOpen()) {
         setOpen(false);
@@ -265,23 +274,36 @@
     apply(currentFilter());
   }
 
+  /* ---- Analytics event helper ---- */
+  function trackEvent(name, params) {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, params || {});
+    }
+  }
+
   /* ---- Search dialog ---- */
   var PAGE_INDEX = [
-    { title: "Home", href: "index.html", context: "The local AI ecosystem" },
-    { title: "PaglaMLX", href: "products/paglamlx.html", context: "LLM orchestration for Apple Silicon" },
-    { title: "Getting Started", href: "docs/index.html", context: "Documentation — install and quick start" },
-    { title: "API Reference", href: "api/reference.html", context: "POST /v1/chat/completions" },
-    { title: "BrandKit", href: "brand/index.html", context: "How to represent PaglaAI" },
-    { title: "Blog", href: "blog/index.html", context: "Progress, documented" },
-    { title: "About", href: "about/index.html", context: "Who is behind the ecosystem" },
-    { title: "404", href: "404.html", context: "Page not found" }
+    { title: "Home", href: "index.html", context: "The local AI ecosystem for Apple Silicon" },
+    { title: "PaglaMLX", href: "products/paglamlx.html", context: "LLM orchestration and local model server for Apple Silicon" },
+    { title: "PaglaGPT", href: "products/paglagpt.html", context: "Official AI Architect of the PaglaAI ecosystem" },
+    { title: "Getting Started", href: "docs/index.html", context: "Documentation, installation, quickstart, and configuration" },
+    { title: "API Reference", href: "api/reference.html", context: "Standard /v1/chat/completions endpoint specification" },
+    { title: "BrandKit", href: "brand/index.html", context: "Brand assets, Pagla Face mark, wordmarks, and guidelines" },
+    { title: "Pagla Sans Specimen", href: "pagla-sans/specimen.html", context: "Interactive typography specimen for Pagla Sans" },
+    { title: "Blog", href: "blog/index.html", context: "Engineering articles, architecture notes, and release logs" },
+    { title: "About", href: "about/index.html", context: "Ecosystem philosophy, local hardware values, and governance" },
+    { title: "Sitemap", href: "sitemap.html", context: "Complete index of all site pages and repositories" },
+    { title: "Agent tooling: MCP + RAG", href: "blog/agent-tooling-mcp-rag.html", context: "Deterministic BM25 retrieval over the design authority" },
+    { title: "PaglaDESIGN v1.3 — Agent manual", href: "blog/pagladesign-v1-3-agent-manual.html", context: "The agent operating manual moves into the design authority" },
+    { title: "PaglaDESIGN v1.2 — Maturation pass", href: "blog/pagladesign-v1-2-maturation-pass.html", context: "Interaction patterns, component library, and mockups" },
+    { title: "PaglaDESIGN v1.0 — Reference CSS", href: "blog/pagladesign-v1-0-reference-css.html", context: "The design authority ships tokens, base, utilities, and site CSS" },
+    { title: "PaglaROUTER 2.6.0 — GitHub-first", href: "blog/paglarouter-2-6-0-github-first.html", context: "Gateway moves to native GitHub Pages and PaglaAI identity" },
+    { title: "PaglaMLX 1.5.0 — Rebranding", href: "blog/paglamlx-1-5-0-rebranding.html", context: "Renames into family, ships docs and release pipeline" },
+    { title: "What the reference shelf taught us", href: "blog/reference-shelf-taught-us.html", context: "The design lessons that shaped PaglaDESIGN" }
   ];
 
   function initSearch() {
-    var trigger = document.querySelector("[data-search-open]");
-    if (!trigger) {
-      return;
-    }
+    var triggers = document.querySelectorAll("[data-search-open]");
     var dialog = document.querySelector("[data-search-dialog]");
     if (!dialog) {
       return;
@@ -289,6 +311,7 @@
     var input = dialog.querySelector("[data-search-input]");
     var results = dialog.querySelector("[data-search-results]");
     var empty = dialog.querySelector("[data-search-empty]");
+    var closeBtn = dialog.querySelector("[data-search-close]");
 
     function query(q) {
       var text = q.trim().toLowerCase();
@@ -311,7 +334,7 @@
       var root = dialog.getAttribute("data-root") || "";
       results.textContent = "";
       if (empty) {
-        empty.hidden = hits.length > 0;
+        empty.hidden = hits.length > 0 || !q.trim();
       }
       for (var i = 0; i < hits.length; i++) {
         var li = document.createElement("li");
@@ -319,25 +342,59 @@
         var a = document.createElement("a");
         a.href = root + hits[i].href;
         var title = document.createElement("span");
+        title.className = "search-dialog__result-title";
         title.textContent = hits[i].title;
+        var ctx = document.createElement("span");
+        ctx.className = "search-dialog__result-context";
+        ctx.textContent = hits[i].context;
         a.appendChild(title);
+        a.appendChild(ctx);
         li.appendChild(a);
         results.appendChild(li);
       }
     }
 
-    trigger.addEventListener("click", function () {
+    function openDialog() {
       dialog.showModal();
       if (input) {
         input.value = "";
         render("");
         input.focus();
       }
+    }
+
+    for (var t = 0; t < triggers.length; t++) {
+      triggers[t].addEventListener("click", openDialog);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        dialog.close();
+      });
+    }
+
+    dialog.addEventListener("click", function (e) {
+      var rect = dialog.getBoundingClientRect();
+      if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+      ) {
+        dialog.close();
+      }
     });
 
     if (input) {
+      var debounceTimer;
       input.addEventListener("input", function () {
         render(input.value);
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () {
+          if (input.value.trim().length > 2) {
+            trackEvent("search", { search_term: input.value.trim() });
+          }
+        }, 500);
       });
     }
   }
