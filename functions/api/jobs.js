@@ -1,5 +1,5 @@
 import { json } from "../_utils.mjs";
-import jobs from "../../ops/jobs.json" with { type: "json" };
+import jobs from "../../ops/jobs.json";
 
 export async function onRequestGet(context) {
   return json({

@@ -1,5 +1,5 @@
 import { json, dispatchGitHubJob, requireAuth } from "../../../_utils.mjs";
-import jobs from "../../../../ops/jobs.json" with { type: "json" };
+import jobs from "../../../../ops/jobs.json";
 
 export async function onRequestPost(context) {
   const denied = requireAuth(context.request, context.env);

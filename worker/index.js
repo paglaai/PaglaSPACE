@@ -1,4 +1,4 @@
-import jobs from "../ops/jobs.json" with { type: "json" };
+import jobs from "../ops/jobs.json";
 
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
