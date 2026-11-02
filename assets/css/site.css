@@ -344,6 +344,8 @@
   .grid--2.grid--keep {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
 @media (min-width: 40rem) and (max-width: 63.99rem) {
   .grid--4 {
     grid-template-columns: repeat(2, 1fr);
@@ -1696,5 +1698,97 @@
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---- Responsive safety and consistent reading alignment ---- */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+.container,
+.hero__content,
+.hero__inner > *,
+.grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+.section__heading {
+  text-align: left;
+}
+
+.section__heading--center {
+  text-align: left;
+}
+
+.section__heading,
+.section > .container > p,
+.section > .container > ul {
+  max-width: var(--layout-reading);
+}
+
+.section > .container > p,
+.section > .container > ul {
+  margin-inline: 0;
+}
+
+.code-showcase__header {
+  flex-wrap: wrap;
+}
+
+.code-showcase__meta {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 48rem) {
+  .site-header__inner {
+    gap: var(--space-2);
+  }
+
+  .theme-toggle {
+    padding-inline: var(--space-2);
+  }
+
+  .theme-toggle [data-theme-label] {
+    display: none;
+  }
+
+  .hero__headline {
+    overflow-wrap: anywhere;
+  }
+
+  .hero__actions,
+  .cta__actions {
+    align-items: stretch;
+  }
+
+  .hero__actions .btn,
+  .cta__actions .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-bottom > span,
+  .footer-locale {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 }
