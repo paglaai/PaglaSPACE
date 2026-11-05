@@ -133,15 +133,21 @@ describe("sitemap.html", () => {
     const expected = pages.filter((p) => p !== "404.html");
     const missing = expected.filter((p) => !linked.has(p));
     assert.deepEqual(missing, [], "pages not listed in sitemap.html");
+    const extra = [...linked].filter((p) => !expected.includes(p));
+    assert.deepEqual(extra, [], "stale or unknown pages listed in sitemap.html");
   });
 
   test("sitemap.xml lists every page with the canonical clean URL", () => {
     const xml = readFileSync(join(ROOT, "sitemap.xml"), "utf8");
+    const expectedUrls = new Set();
     for (const page of pages) {
       if (page === "404.html") continue;
       const url = `${SITE_URL}${cleanUrl(page)}`;
+      expectedUrls.add(url);
       assert.ok(xml.includes(`<loc>${url}</loc>`), `sitemap.xml missing ${url}`);
     }
+    const actualUrls = new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+    assert.deepEqual([...actualUrls].sort(), [...expectedUrls].sort(), "sitemap.xml has stale or unknown URLs");
   });
 });
 
