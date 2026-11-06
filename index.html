@@ -17,6 +17,7 @@
   <meta name="twitter:description" content="PaglaAI is an open, local-first AI stack for running models, routing workloads, and building intelligent tools on your terms.">
   <meta name="twitter:image" content="https://www.paglaai.space/assets/brand/paglaai-mark.png">
   <link rel="icon" href="assets/brand/pagla-face-black.png" type="image/png">
+  <link rel="preload" href="assets/fonts/PaglaSans-VF.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css?v=20250911">
   <link rel="stylesheet" href="assets/css/base.css?v=20250911">
   <link rel="stylesheet" href="assets/css/utilities.css?v=20250911">
@@ -49,6 +50,7 @@
   }
   </script>
   <!-- Google tag (gtag.js) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKTG3P4M3R"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -125,10 +127,10 @@
         <h2 id="gateway-heading" class="section__heading section__heading--center">One interface. Every model.</h2>
         <div class="code-showcase tabs">
           <div class="code-showcase__header">
-            <div class="tabs__list" role="tablist">
+            <div class="tabs__list" role="tablist" aria-label="Code examples">
               <button type="button" id="tab-curl" class="code-showcase__tab tabs__tab" role="tab" aria-selected="true" aria-controls="panel-curl">cURL</button>
-              <button type="button" id="tab-python" class="code-showcase__tab tabs__tab" role="tab" aria-selected="false" aria-controls="panel-python">Python</button>
-              <button type="button" id="tab-ts" class="code-showcase__tab tabs__tab" role="tab" aria-selected="false" aria-controls="panel-ts">TypeScript</button>
+              <button type="button" id="tab-python" class="code-showcase__tab tabs__tab" role="tab" aria-selected="false" aria-controls="panel-python" tabindex="-1">Python</button>
+              <button type="button" id="tab-ts" class="code-showcase__tab tabs__tab" role="tab" aria-selected="false" aria-controls="panel-ts" tabindex="-1">TypeScript</button>
             </div>
             <span class="code-showcase__meta">127.0.0.1:2525 · Apple Silicon Native</span>
           </div>
@@ -191,7 +193,7 @@ console.log(data.choices[0].message.content);</code></pre>
             <span class="product-card__action">Product overview →</span>
           </a>
 
-          <a class="product-card" href="https://github.com/paglaai/PaglaROUTER">
+          <a class="product-card" href="https://github.com/paglaai/PaglaROUTER" rel="noopener noreferrer">
             <div>
               <div class="product-card__meta">
                 <span class="product-card__tag">Gateway</span>
@@ -227,7 +229,7 @@ console.log(data.choices[0].message.content);</code></pre>
             <span class="product-card__action">Product overview →</span>
           </a>
 
-          <a class="product-card" href="https://github.com/paglaai/PaglaSHELL">
+          <a class="product-card" href="https://github.com/paglaai/PaglaSHELL" rel="noopener noreferrer">
             <div>
               <div class="product-card__meta">
                 <span class="product-card__tag">CLI Kernel</span>
@@ -239,7 +241,7 @@ console.log(data.choices[0].message.content);</code></pre>
             <span class="product-card__action">View repository ↗</span>
           </a>
 
-          <a class="product-card" href="https://github.com/paglaai/B3K4R">
+          <a class="product-card" href="https://github.com/paglaai/B3K4R" rel="noopener noreferrer">
             <div>
               <div class="product-card__meta">
                 <span class="product-card__tag">Intelligence</span>
@@ -314,19 +316,19 @@ console.log(data.choices[0].message.content);</code></pre>
             <p class="overline">ENGINEERING · 5 MIN READ</p>
             <h3 class="card__name">Agent tooling: MCP + RAG</h3>
             <p class="card__line">Deterministic BM25 retrieval over the design authority so agents query exact tokens without context bloat.</p>
-            <p class="u-mt-4"><a href="blog/agent-tooling-mcp-rag.html">Read article →</a></p>
+            <p class="u-mt-4"><a href="blog/agent-tooling-mcp-rag.html" aria-label="Read article: Agent tooling: MCP + RAG">Read article →</a></p>
           </div>
           <div class="card">
             <p class="overline">DESIGN · 4 MIN READ</p>
             <h3 class="card__name">PaglaDESIGN v1.3 — Agent manual</h3>
             <p class="card__line">Moving the agent operating manual into the design authority: rules, token contracts, and UX invariants.</p>
-            <p class="u-mt-4"><a href="blog/pagladesign-v1-3-agent-manual.html">Read article →</a></p>
+            <p class="u-mt-4"><a href="blog/pagladesign-v1-3-agent-manual.html" aria-label="Read article: PaglaDESIGN v1.3 — Agent manual">Read article →</a></p>
           </div>
           <div class="card">
             <p class="overline">GATEWAY · 4 MIN READ</p>
             <h3 class="card__name">PaglaROUTER 2.6.0 — GitHub-first</h3>
             <p class="card__line">Serverless gateway moves to GitHub-first docs, automated release workflows, and unified brand identity.</p>
-            <p class="u-mt-4"><a href="blog/paglarouter-2-6-0-github-first.html">Read article →</a></p>
+            <p class="u-mt-4"><a href="blog/paglarouter-2-6-0-github-first.html" aria-label="Read article: PaglaROUTER 2.6.0 — GitHub-first">Read article →</a></p>
           </div>
         </div>
       </div>
@@ -337,15 +339,16 @@ console.log(data.choices[0].message.content);</code></pre>
         <h2 id="community-heading" class="cta__heading">Built in the open, for your machine</h2>
         <p class="cta__line">Follow the work, open an issue, or run it yourself. The ecosystem is one checkout away.</p>
         <div class="cta__actions">
-          <a class="btn btn--primary" href="https://github.com/paglaai">View organization on GitHub</a>
+          <a class="btn btn--primary" href="https://github.com/paglaai" rel="noopener noreferrer">View organization on GitHub</a>
         </div>
       </div>
     </section>
   </main>
 
-  <dialog class="search-dialog" data-search-dialog data-root="">
-    <label class="search-dialog__label" for="site-search">Search the site</label>
+  <dialog class="search-dialog" data-search-dialog data-root="" aria-labelledby="site-search-label">
+    <label class="search-dialog__label" id="site-search-label" for="site-search">Search the site</label>
     <input class="search-dialog__input" id="site-search" type="search" data-search-input placeholder="Type a page name" autocomplete="off">
+    <button type="button" class="btn btn--ghost" data-search-close aria-label="Close search">Close</button>
     <ul class="search-dialog__results" data-search-results></ul>
     <p class="search-dialog__empty" data-search-empty hidden>No results. Try a page name, like "docs".</p>
   </dialog>

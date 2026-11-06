@@ -49,7 +49,7 @@ jobs:
 
   worker:
     name: Deploy Cloudflare Worker (jobs)
-    needs: test
+    needs: [test, pages]
     runs-on: ubuntu-latest
     continue-on-error: true
     defaults:
