@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -29,7 +31,18 @@ jobs:
         run: npm ci
 
       - name: Run job
-        run: node ops/run-job.mjs "${{ github.event.inputs.job || 'all' }}"
         env:
+          JOB_SELECTOR: ${{ inputs.job || 'all' }}
           SITE_URL: https://www.paglaai.space
           WORKER_URL: ${{ vars.WORKER_URL }}
+        run: |
+          set -euo pipefail
+          case "$JOB_SELECTOR" in
+            all|nightly|scheduled|on_demand|nightly-audit|sitemap-generate|health-check|ping-search|worker-verify)
+              ;;
+            *)
+              echo "Invalid job selector: $JOB_SELECTOR" >&2
+              exit 2
+              ;;
+          esac
+          node ops/run-job.mjs "$JOB_SELECTOR"
