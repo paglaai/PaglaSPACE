@@ -65,7 +65,13 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="wordmark" href="index.html" aria-label="PaglaAI home">PaglaAI</a>
+      <a class="wordmark" href="index.html" aria-label="PaglaAI home">
+        <span class="wordmark__mark" aria-hidden="true">
+          <img class="mark-light" src="assets/brand/pagla-face-black.png" alt="" width="26" height="26">
+          <img class="mark-dark" src="assets/brand/pagla-face-white.png" alt="" width="26" height="26">
+        </span>
+        <span class="wordmark__text">PaglaAI</span>
+      </a>
       <nav class="site-nav" data-site-nav aria-label="Primary">
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="products/index.html">Products</a></li>
@@ -115,7 +121,7 @@
             without giving up control of your data, hardware, or workflow.
           </p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="products/paglamlx.html">Explore the stack →</a>
+            <a class="btn btn--primary" href="products/index.html">Explore all 9 products →</a>
             <a class="btn btn--ghost" href="docs/index.html">Read the docs</a>
           </div>
         </div>
@@ -180,41 +186,20 @@ console.log(data.choices[0].message.content);</code></pre>
     <section class="section" aria-labelledby="ecosystem-heading">
       <div class="container">
         <h2 id="ecosystem-heading" class="section__heading section__heading--center">The ecosystem</h2>
-        <div class="grid grid--4">
-          <a class="product-card" href="products/paglamlx.html">
+        <p class="section__summary" style="text-align:center; max-width:60ch; margin-inline:auto; margin-bottom:var(--space-8); color:var(--color-base-muted);">
+          Nine unified surfaces powering autonomous local-first intelligence, design governance, and high-performance routing.
+        </p>
+        <div class="grid grid--3">
+          <a class="product-card" href="products/index.html">
             <div>
               <div class="product-card__meta">
-                <span class="product-card__tag">Inference</span>
+                <span class="product-card__tag">Core Portal</span>
                 <span class="product-card__badge">Active</span>
               </div>
-              <h3 class="product-card__title">PaglaMLX</h3>
-              <p class="product-card__desc">Local MLX model server and menu-bar orchestrator optimized for Apple Silicon unified memory.</p>
+              <h3 class="product-card__title">PaglaSPACE</h3>
+              <p class="product-card__desc">Central ecosystem portal, documentation distribution platform, and CI/CD operations engine.</p>
             </div>
-            <span class="product-card__action">Product overview →</span>
-          </a>
-
-          <a class="product-card" href="https://github.com/paglaai/PaglaROUTER" rel="noopener noreferrer">
-            <div>
-              <div class="product-card__meta">
-                <span class="product-card__tag">Gateway</span>
-                <span class="product-card__badge">Active</span>
-              </div>
-              <h3 class="product-card__title">PaglaROUTER</h3>
-              <p class="product-card__desc">Stateless serverless router providing unified model routing, latency failover, and multi-key management.</p>
-            </div>
-            <span class="product-card__action">View repository ↗</span>
-          </a>
-
-          <a class="product-card" href="products/paglagpt.html">
-            <div>
-              <div class="product-card__meta">
-                <span class="product-card__tag">Architect</span>
-                <span class="product-card__badge">Active</span>
-              </div>
-              <h3 class="product-card__title">PaglaGPT</h3>
-              <p class="product-card__desc">Official AI Architect enforcing design-first sequencing, 16 GB memory ceilings, and ecosystem standards.</p>
-            </div>
-            <span class="product-card__action">Product overview →</span>
+            <span class="product-card__action">Explore product suite →</span>
           </a>
 
           <a class="product-card" href="products/PaglaDESIGN.html">
@@ -224,12 +209,48 @@ console.log(data.choices[0].message.content);</code></pre>
                 <span class="product-card__badge">Active</span>
               </div>
               <h3 class="product-card__title">PaglaDESIGN</h3>
-              <p class="product-card__desc">Canonical design system, BrandKit, DesignDNA, and UX foundation for all human, machine, and architect surfaces.</p>
+              <p class="product-card__desc">Canonical design system, BrandKit, DesignDNA tokens, and multi-audience documentation specs.</p>
             </div>
             <span class="product-card__action">Product overview →</span>
           </a>
 
-          <a class="product-card" href="https://github.com/paglaai/PaglaSHELL" rel="noopener noreferrer">
+          <a class="product-card" href="api/reference.html">
+            <div>
+              <div class="product-card__meta">
+                <span class="product-card__tag">LLM Gateway</span>
+                <span class="product-card__badge">Active</span>
+              </div>
+              <h3 class="product-card__title">PaglaROUTER</h3>
+              <p class="product-card__desc">Stateless serverless router providing unified model routing, latency failover, and fail-closed security.</p>
+            </div>
+            <span class="product-card__action">API reference →</span>
+          </a>
+
+          <a class="product-card" href="products/paglamlx.html">
+            <div>
+              <div class="product-card__meta">
+                <span class="product-card__tag">Local Inference</span>
+                <span class="product-card__badge">Active</span>
+              </div>
+              <h3 class="product-card__title">PaglaMLX</h3>
+              <p class="product-card__desc">Apple Silicon native model server and menu-bar orchestrator optimized for unified memory.</p>
+            </div>
+            <span class="product-card__action">Product overview →</span>
+          </a>
+
+          <a class="product-card" href="products/paglagpt.html">
+            <div>
+              <div class="product-card__meta">
+                <span class="product-card__tag">AI Architect</span>
+                <span class="product-card__badge">Active</span>
+              </div>
+              <h3 class="product-card__title">PaglaGPT</h3>
+              <p class="product-card__desc">Official system architect enforcing design-first sequencing, 16 GB memory ceilings, and ecosystem standards.</p>
+            </div>
+            <span class="product-card__action">Product overview →</span>
+          </a>
+
+          <a class="product-card" href="products/index.html">
             <div>
               <div class="product-card__meta">
                 <span class="product-card__tag">CLI Kernel</span>
@@ -238,10 +259,22 @@ console.log(data.choices[0].message.content);</code></pre>
               <h3 class="product-card__title">PaglaSHELL</h3>
               <p class="product-card__desc">Terminal execution kernel and autonomous agent runner connecting shell pipelines to local LLMs.</p>
             </div>
-            <span class="product-card__action">View repository ↗</span>
+            <span class="product-card__action">View details →</span>
           </a>
 
-          <a class="product-card" href="https://github.com/paglaai/B3K4R" rel="noopener noreferrer">
+          <a class="product-card" href="products/index.html">
+            <div>
+              <div class="product-card__meta">
+                <span class="product-card__tag">Browser Extension</span>
+                <span class="product-card__badge">Active</span>
+              </div>
+              <h3 class="product-card__title">PaglaEXTENSION</h3>
+              <p class="product-card__desc">Privacy-preserving browser tool archiving conversations and exporting to Markdown and Notion.</p>
+            </div>
+            <span class="product-card__action">View details →</span>
+          </a>
+
+          <a class="product-card" href="products/index.html">
             <div>
               <div class="product-card__meta">
                 <span class="product-card__tag">Intelligence</span>
@@ -250,32 +283,23 @@ console.log(data.choices[0].message.content);</code></pre>
               <h3 class="product-card__title">B3K4R</h3>
               <p class="product-card__desc">Autonomous career intelligence engine automating market discovery, profile synthesis, and opportunity matching.</p>
             </div>
-            <span class="product-card__action">View repository ↗</span>
+            <span class="product-card__action">View details →</span>
           </a>
 
-          <a class="product-card" href="https://github.com/paglaai">
+          <a class="product-card" href="docs/index.html">
             <div>
               <div class="product-card__meta">
-                <span class="product-card__tag">Workspace</span>
+                <span class="product-card__tag">Documentation</span>
                 <span class="product-card__badge">Active</span>
               </div>
-              <h3 class="product-card__title">PaglaCHAT</h3>
-              <p class="product-card__desc">Conversational interface for local-first intelligence, document synthesis, and multi-turn collaboration.</p>
+              <h3 class="product-card__title">PaglaDOC</h3>
+              <p class="product-card__desc">Fern-powered multi-surface documentation platform delivering unified architectural and API specs.</p>
             </div>
-            <span class="product-card__action">Explore the organization ↗</span>
+            <span class="product-card__action">Documentation →</span>
           </a>
-
-          <a class="product-card" href="https://github.com/paglaai">
-            <div>
-              <div class="product-card__meta">
-                <span class="product-card__tag">Substrate</span>
-                <span class="product-card__badge">Active</span>
-              </div>
-              <h3 class="product-card__title">PaglaOS</h3>
-              <p class="product-card__desc">Operating system substrate on the SANCTUM runtime, coordinating distributed Apple Silicon clusters.</p>
-            </div>
-            <span class="product-card__action">Explore the organization ↗</span>
-          </a>
+        </div>
+        <div style="text-align: center; margin-top: var(--space-8);">
+          <a class="btn btn--primary" href="products/index.html">Explore full product catalog & architecture (all 9 apps) →</a>
         </div>
       </div>
     </section>
