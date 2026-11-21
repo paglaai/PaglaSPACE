@@ -51,7 +51,13 @@
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="wordmark" href="../index.html" aria-label="PaglaAI home">PaglaAI</a>
+      <a class="wordmark" href="../index.html" aria-label="PaglaAI home">
+        <span class="wordmark__mark" aria-hidden="true">
+          <img class="mark-light" src="../assets/brand/pagla-face-black.png" alt="" width="26" height="26">
+          <img class="mark-dark" src="../assets/brand/pagla-face-white.png" alt="" width="26" height="26">
+        </span>
+        <span class="wordmark__text">PaglaAI</span>
+      </a>
       <nav class="site-nav" data-site-nav aria-label="Primary">
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="../products/index.html">Products</a></li>
@@ -196,12 +202,27 @@
       </section>
 
       <section class="section" aria-labelledby="contact-heading">
-        <h2 id="contact-heading" class="section__heading">Contact</h2>
-        <ul>
-          <li>Email — <a href="mailto:legal@paglaai.space">legal@paglaai.space</a></li>
-          <li>GitHub — <a href="https://github.com/paglaai">github.com/paglaai</a></li>
-          <li>Community — open an issue on any repository to start a conversation.</li>
-        </ul>
+        <h2 id="contact-heading" class="section__heading">Communications &amp; Contact</h2>
+        <p>Every product and surface across the PaglaAI ecosystem maintains dedicated direct channels:</p>
+        <div class="grid grid--2" style="margin-top:var(--space-6);">
+          <div class="card">
+            <h3 class="card__name">PaglaAI Ecosystem</h3>
+            <ul style="margin:0; padding-left:1.25rem;">
+              <li>General inquiries: <a href="mailto:info@paglaai.space">info@paglaai.space</a></li>
+              <li>Legal &amp; privacy: <a href="mailto:legal@paglaai.space">legal@paglaai.space</a></li>
+              <li>Security disclosures: <a href="mailto:security@paglaai.space">security@paglaai.space</a></li>
+              <li>Operations: <a href="mailto:ops@paglaai.space">ops@paglaai.space</a></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="card__name">Parent Organization (AYNAGHOR)</h3>
+            <ul style="margin:0; padding-left:1.25rem;">
+              <li>Architect: <a href="mailto:PaglaAI@aynaghor.space">PaglaAI@aynaghor.space</a></li>
+              <li>Leadership: <a href="mailto:SecondSON@aynaghor.space">SecondSON@aynaghor.space</a></li>
+              <li>Portal: <a href="https://www.aynaghor.space" target="_blank" rel="noopener noreferrer">aynaghor.space ↗</a></li>
+            </ul>
+          </div>
+        </div>
       </section>
     </div>
   </main>
