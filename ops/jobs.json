@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "repo": "paglaai/paglaai.space",
+  "repo": "paglaai/PaglaSPACE",
   "siteUrl": "https://www.paglaai.space",
   "workflowDispatch": "ops.yml",
   "jobs": [
