@@ -85,7 +85,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.paglaai.space/products/PaglaDESIGN</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.paglaai.space/products/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.paglaai.space/products/paglagpt</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
