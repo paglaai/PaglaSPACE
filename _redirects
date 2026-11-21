@@ -1,0 +1,4 @@
+/product /products/ 301
+/product/ /products/ 301
+/product/* /products/ 301
+/products/index.html /products/ 301
