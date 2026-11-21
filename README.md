@@ -1,203 +1,105 @@
-# PaglaSPACE
+<p align="center">
+  <a href="https://github.com/paglaai/PaglaSPACE">
+    <img src="https://raw.githubusercontent.com/paglaai/PaglaSPACE/main/brand/paglaspace-wordmark.svg" alt="PaglaSPACE Wordmark" width="460">
+  </a>
+</p>
 
-> The official web home, operations control plane, and distribution portal for the entire PaglaAI ecosystem.
+<p align="center">
+  <strong>The Sovereign Web Gateway, Edge-Routed Portal, and Product Showcase for the PaglaAI Ecosystem.</strong>
+</p>
 
----
-
-## What is PaglaSPACE?
-
-PaglaSPACE is the primary web portal and distribution platform for the **PaglaAI** ecosystem, hosted at [paglaai.space](https://www.paglaai.space).
-
-It is not simply a static landing page.
-
-It is the operational anchor and live showcase for all PaglaAI products, combining an editorial DesignDNA-compliant web surface with automated operational pipelines, scheduled telemetry, health auditing, and edge functions running on Cloudflare Pages and Workers.
-
-Everything the world sees of PaglaAI originates here.
-
----
-
-## Purpose
-
-The purpose of this repository is to represent and maintain the public web surface of PaglaAI with zero runtime compromises.
-
-This repository governs:
-
-- Public Ecosystem Web Presence (`https://www.paglaai.space`)
-- Product Showcase & Distribution (`/products/`)
-- BrandKit and Identity Showcase (`/brand/`)
-- Unified Documentation Portal (`/docs/`)
-- API Reference & Interactive Explorer (`/api/`)
-- Pagla Sans Type Specimen (`/pagla-sans/`)
-- PaglaOps Automated Operations Pipeline (`ops/jobs.json`)
-- Continuous Health Auditing & Search Engine Ping (`worker/index.js`)
-- Edge Operations API (`functions/api/`)
-- Zero-Dependency Verification Suite (`tests/`)
+<p align="center">
+  <a href="https://www.paglaai.space"><img src="https://img.shields.io/badge/Production-paglaai.space-6B7EFF?style=flat-square&logo=cloudflare" alt="Production Site"></a>
+  <a href="https://github.com/paglaai/PaglaSPACE/actions/workflows/ci.yml"><img src="https://github.com/paglaai/PaglaSPACE/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
+  <a href="https://github.com/paglaai/PaglaSPACE/releases"><img src="https://img.shields.io/badge/version-2.2.1-0A0A0B?style=flat-square" alt="Version 2.2.1"></a>
+  <a href="https://github.com/paglaai/PaglaDESIGN"><img src="https://img.shields.io/badge/DesignDNA-Locked_(D--024)-0A0A0B?style=flat-square" alt="DesignDNA Locked"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-0A0A0B?style=flat-square" alt="License MIT"></a>
+</p>
 
 ---
 
-## Ecosystem
+## Overview
 
-PaglaSPACE serves as the web distribution anchor for all PaglaAI projects:
+**PaglaSPACE** is the public gateway, canonical web presence, and interactive product directory for the PaglaAI sovereign ecosystem. Deployed on Cloudflare's global edge network, PaglaSPACE provides an ultra-low latency, fail-closed interface that showcases the entire suite of PaglaAI runtimes, models, and development authorities.
 
-- **PaglaSPACE** — This portal and operations plane.
-- **PaglaDESIGN** — The canonical design authority whose tokens and styles are implemented here.
-- **PaglaMLX** — Apple Silicon local inference orchestrator showcased at `/products/paglamlx.html`.
-- **PaglaROUTER** — Edge gateway routing requests across providers, referenced in `/api/reference.html`.
-- **PaglaSHELL** — The CLI multi-agent core environment.
-- **PaglaEXTENSION** — Chrome extension for private AI chat export and knowledge capture.
-- **B3K4R** — Career Intelligence Agent (CIA) assisted job hunting application.
-- **PaglaGPT** — Ecosystem AI Architect and reasoning system.
-- **PaglaDOC** — Fern-powered multi-surface documentation platform.
-
----
-
-## Design Philosophy
-
-PaglaSPACE strictly adheres to the **DesignDNA** doctrine defined by `PaglaDESIGN`:
-
-- **Editorial over decorative:** Generous whitespace, zero unnecessary ornamentation.
-- **Monochrome foundation:** `#0A0A0B` (dark) and `#FFFFFF` (light) with hairline borders.
-- **Strict accent discipline:** Accent `#6B7EFF` is reserved exclusively for semantic meaning, focus rings, and link interactions—never as a container fill.
-- **Pagla Sans typography:** Modular, ratio-based type scale powered by the custom Pagla Sans font family.
-- **Performance by default:** Zero frontend runtime frameworks. Pure semantic HTML, modern CSS tokens, and lightweight vanilla JavaScript.
-- **Fail-closed security:** Secure edge functions with constant-time token verification.
-
----
-
-## Repository Structure
+Every pixel, type token, and interaction in PaglaSPACE strictly implements the **DesignDNA** codified in [PaglaDESIGN](https://github.com/paglaai/PaglaDESIGN).
 
 ```
-PaglaSPACE/
-
-README.md                  — repository purpose, ecosystem role, and operations guide
-LICENSE                    — MIT license
-_headers                   — Cloudflare Pages security and caching headers
-robots.txt                 — search engine crawling and sitemap declaration
-llms.txt                   — AI agent and crawler indexing reference
-sitemap.xml                — canonical clean-URL sitemap
-sitemap.html               — human-facing sitemap page
-404.html                   — custom branded 404 error page
-index.html                 — ecosystem homepage
-
-products/                  — product showcase pages
-  index.html               — full ecosystem products index
-  paglamlx.html            — PaglaMLX product overview and downloads
-
-docs/                      — documentation hub
-  index.html               — getting started and ecosystem guides
-
-brand/                     — BrandKit portal
-  index.html               — brand identity, marks, color systems, and downloads
-
-blog/                      — engineering, architectural, and design updates
-  index.html               — blog index with interactive chip filtering
-  *.html                   — individual articles and technical releases
-
-about/                     — organizational background
-  index.html               — mission, principles, timeline, and contacts
-
-api/                       — API documentation
-  reference.html           — OpenAI/Claude compatible gateway reference
-
-pagla-sans/                — typography specimen
-  specimen.html            — interactive Pagla Sans type tester
-
-assets/                    — shared static assets
-  brand/                   — Pagla face wordmarks and favicons
-  css/                     — DesignDNA stylesheets (tokens, base, utilities, site)
-  js/                      — lightweight vanilla JS (theme, search dialog, tabs)
-  fonts/                   — Pagla Sans WOFF2 web fonts
-
-functions/                 — Cloudflare Pages Functions
-  _middleware.js           — edge security headers and routing
-  _utils.mjs               — fail-closed authentication and GitHub Actions dispatcher
-  api/health.js            — live edge health check
-  api/jobs.js              — job registry status endpoint
-  api/jobs/[name]/run.js   — secure on-demand job runner
-
-worker/                    — Cloudflare Worker (PaglaOps)
-  index.js                 — cron-driven health monitoring and search engine pings
-  wrangler.toml            — worker deployment configuration
-
-ops/                       — PaglaOps automation engine
-  jobs.json                — canonical job registry and schedules
-  run-job.mjs              — job executor CLI
-  scripts/                 — link auditors, sitemap generators, health checkers
-
-tests/                     — zero-dependency Node.js test suite
-  site.test.mjs            — HTML validation, link integrity, and asset checks
-  config.test.mjs          — wrangler, ops, and worker validation
-  lib/html.mjs             — test utilities
-
-.github/workflows/         — automated CI/CD pipelines
-  ci.yml                   — PR and push verification
-  deploy.yml               — Cloudflare Pages + Worker production deployment
-  ops.yml                  — on-demand ops job dispatch
-  nightly.yml              — automated nightly health and link integrity audits
-  scheduled.yml            — scheduled cron job runner
-  release.yml              — automated GitHub Release publisher
+                 ┌────────────────────────────────────────┐
+                 │       Cloudflare Edge Network          │
+                 │   DNS • TLS 1.3 • HSTS • CSP L2        │
+                 └───────────────────┬────────────────────┘
+                                     │
+         ┌───────────────────────────┴───────────────────────────┐
+         ▼                                                       ▼
+┌──────────────────────────────┐              ┌──────────────────────────────┐
+│     Cloudflare Functions     │              │    Fail-Closed Redirection   │
+│  _middleware.js • Security   │              │   /product  ──►  /products/  │
+└──────────────┬───────────────┘              └──────────────────────────────┘
+               │
+               ▼
+┌────────────────────────────────────────────────────────────────────────────┐
+│                             PaglaSPACE Surface                             │
+│     Home (/) • Products (/products/) • Product Details • About & Legal     │
+└────────────────────────────────────────────────────────────────────────────┘
 ```
 
----
+## Core Capabilities
 
-## Workflow
+- **Showcases All 9 Ecosystem Applications**: Centralizes access to PaglaMLX, PaglaGPT, PaglaROUTER, PaglaDESIGN, PaglaDOC, PaglaEXTENSION, B3K4R, and PaglaSHELL.
+- **Fail-Closed Edge Routing**: Automatically intercepts legacy singular routes (`/product`) with clean HTTP 301 redirects to canonical directory paths.
+- **Strict DesignDNA Compliance**: Pure Obsidian base (`#0A0A0B`), high-contrast typography (`#FFFFFF`), semantic cobalt accents (`#6B7EFF`), and native Pagla Sans font stack.
+- **Zero-Dependency Core**: Lightweight static architecture with 100% test coverage across link integrity, asset presence, and typography rules.
 
-Every release and content addition follows the standard PaglaAI lifecycle:
+## Quick Start
 
-```
-Vision
-    ↓
-Research
-    ↓
-Documentation
-    ↓
-Design
-    ↓
-Review
-    ↓
-Prototype
-    ↓
-Implementation
-```
-
-Implementation is verified locally before any code reaches production.
-
----
-
-## Quickstart
-
-### Prerequisites
-
-- Node.js ≥ 20
-- npm ≥ 10
-
-### Installation & Verification
+Run the local development server and execute the complete verification suite:
 
 ```bash
-# Clone the repository
-git clone https://github.com/paglaai/PaglaSPACE.git
-cd PaglaSPACE
-
-# Install dependencies (test and ops tooling)
+# Install dependencies
 npm install
 
-# Run the complete test suite (84 automated checks)
+# Run the full test suite (13 suites, 167 assertions)
 npm test
 
-# Regenerate sitemap if pages are added or modified
-npm run sitemap
-
-# List all registered ops jobs
-npm run jobs:list
-
-# Run an ops job locally
-npm run jobs:run nightly-audit
+# Launch local development server
+npm run dev
 ```
+
+## Architecture & Tech Stack
+
+| Layer | Technology | Specification |
+| :--- | :--- | :--- |
+| **Hosting & CDN** | Cloudflare Pages | Global edge delivery, zero origin cold-starts |
+| **Edge Functions** | Cloudflare Workers | `functions/_middleware.js` for route sanitation |
+| **Design System** | PaglaDESIGN | SSOT tokens, Cascade Layers, responsive wordmarks |
+| **Testing** | Node.js Test Runner | Automated link, meta, asset, and redirect verification |
+
+## DesignDNA & Ecosystem Authority
+
+PaglaSPACE inherits its visual architecture directly from [PaglaDESIGN](https://github.com/paglaai/PaglaDESIGN):
+- **Primary Background**: Obsidian `#0A0A0B`
+- **Surface Elevation**: Dark Glass `rgba(255, 255, 255, 0.03)`
+- **Primary Typography**: Pagla Sans Light (300) / Regular (400)
+- **Accent Brand**: Electric Blue `#6B7EFF`
+
+## Security & Fail-Closed Policy
+
+PaglaSPACE operates under a strict fail-closed security model:
+1. **Content Security Policy (CSP)**: Blocks all unauthorized script execution, inline injections, and untrusted cross-origin assets.
+2. **Strict Transport Security (HSTS)**: Hardened with `max-age=63072000; includeSubDomains; preload`.
+3. **No External Tracking**: Zero third-party telemetry, ads, or fingerprinting scripts.
+
+${ecosystemDirectory}
+
+${emailSection}
+
+## License
+
+PaglaSPACE is open-source software licensed under the **[MIT License](./LICENSE)**.
 
 ---
 
-## Governance & License
-
-PaglaSPACE is developed and maintained by **AYNAGHOR** (The House of Mirror) for the PaglaAI ecosystem.
-
-Released under the **MIT License**.
+<p align="center">
+  <sub>© 2026 AYNAGHOR. PaglaSPACE is part of the PaglaAI ecosystem. Every surface inherits from here.</sub>
+</p>
