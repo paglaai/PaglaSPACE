@@ -19,11 +19,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Log payload
+        env:
+          DESIGN_SOURCE: ${{ github.event.client_payload.source || '' }}
+          DESIGN_SHA: ${{ github.event.client_payload.sha || '' }}
         run: |
-          echo "Source: ${{ github.event.client_payload.source }}"
-          echo "SHA: ${{ github.event.client_payload.sha }}"
+          set -euo pipefail
+          if [ -n "$DESIGN_SHA" ] && [[ ! "$DESIGN_SHA" =~ ^[0-9a-fA-F]{40}$ ]]; then
+            echo "Invalid design commit SHA in repository_dispatch payload" >&2
+            exit 1
+          fi
+          printf 'Source: %s\n' "$DESIGN_SOURCE"
+          printf 'SHA: %s\n' "$DESIGN_SHA"
 
       - name: Setup Node
         uses: actions/setup-node@v4
