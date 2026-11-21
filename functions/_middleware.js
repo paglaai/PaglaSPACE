@@ -1,4 +1,10 @@
 export async function onRequest(context) {
+  const url = new URL(context.request.url);
+  if (url.pathname === "/product" || url.pathname === "/product/") {
+    url.pathname = "/products/";
+    return Response.redirect(url.toString(), 301);
+  }
+
   const response = await context.next();
   const headers = new Headers(response.headers);
   headers.set("x-content-type-options", "nosniff");
