@@ -21,7 +21,7 @@ export async function fetchWithTimeout(url, ms = 15000) {
 
 export async function dispatchGitHubJob(env, jobName) {
   const token = env.GITHUB_TOKEN;
-  const repo = env.GITHUB_REPO || "paglaai/paglaai.space";
+  const repo = env.GITHUB_REPO || "paglaai/PaglaSPACE";
   if (!token) return { dispatched: false, reason: "GITHUB_TOKEN not configured" };
   const res = await fetch(
     `https://api.github.com/repos/${repo}/actions/workflows/ops.yml/dispatches`,
@@ -38,9 +38,19 @@ export async function dispatchGitHubJob(env, jobName) {
   return { dispatched: res.ok, status: res.status, repo, job: jobName };
 }
 
+function timingSafeEqual(a, b) {
+  if (typeof a !== "string" || typeof b !== "string") return false;
+  if (a.length !== b.length) return false;
+  let out = 0;
+  for (let i = 0; i < a.length; i++) {
+    out |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return out === 0;
+}
+
 export function requireAuth(request, env) {
   const token = env.JOBS_API_TOKEN;
-  if (!token) return null;
+  if (!token) return "JOBS_API_TOKEN not configured";
   const header = request.headers.get("authorization") || "";
-  return header === `Bearer ${token}` ? null : "missing or invalid JOBS_API_TOKEN";
+  return timingSafeEqual(header, `Bearer ${token}`) ? null : "missing or invalid JOBS_API_TOKEN";
 }
